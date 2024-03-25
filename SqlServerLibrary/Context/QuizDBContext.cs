@@ -33,13 +33,15 @@ namespace SqlServerLibrary.Context
             modelBuilder.Entity<Quiz>()
                 .HasMany(q => q.Questions)
                 .WithOne(q => q.Quiz)
-                .HasForeignKey(q => q.QuizId);
+                .HasForeignKey(q => q.QuizId)
+                .OnDelete(DeleteBehavior.Restrict); 
 
             // Question - Answer: One-to-many relationship
             modelBuilder.Entity<Question>()
                 .HasMany(q => q.Answers)
                 .WithOne(a => a.Question)
-                .HasForeignKey(a => a.QuestionId);
+                .HasForeignKey(a => a.QuestionId)
+                .OnDelete(DeleteBehavior.Restrict); 
 
             // User - Quiz: One-to-many relationship
             modelBuilder.Entity<User>()
