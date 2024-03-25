@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SqlServerLibrary
+
+namespace SqlServerLibrary.Context
 {
     public class QuizDBContext : DbContext
     {
@@ -27,13 +28,14 @@ namespace SqlServerLibrary
         // Configure relationships quiz 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // configure the relationship between the Quiz and Question tables
+
+            // quiz has a one to many relationship with questions
             modelBuilder.Entity<Quiz>().HasMany(q => q.Questions).WithOne(q => q.Quiz).HasForeignKey(q => q.QuizId);
             
-            
+
             // questions have a one to many relationship with answers
             modelBuilder.Entity<Question>().HasMany(q => q.Answers).WithOne(a => a.Question).HasForeignKey(a => a.QuestionId);
-            
+
             // users have a one to many relationship with quizzes
             modelBuilder.Entity<User>().HasMany(u => u.UsersQuizzes).WithOne(q => q.User).HasForeignKey(q => q.UserId);
         }
