@@ -29,15 +29,24 @@ namespace SqlServerLibrary.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            // quiz has a one to many relationship with questions
-            modelBuilder.Entity<Quiz>().HasMany(q => q.Questions).WithOne(q => q.Quiz).HasForeignKey(q => q.QuizId);
-            
+            // Quiz - Question: One-to-many relationship
+            modelBuilder.Entity<Quiz>()
+                .HasMany(q => q.Questions)
+                .WithOne(q => q.Quiz)
+                .HasForeignKey(q => q.QuizId);
 
-            // questions have a one to many relationship with answers
-            modelBuilder.Entity<Question>().HasMany(q => q.Answers).WithOne(a => a.Question).HasForeignKey(a => a.QuestionId);
+            // Question - Answer: One-to-many relationship
+            modelBuilder.Entity<Question>()
+                .HasMany(q => q.Answers)
+                .WithOne(a => a.Question)
+                .HasForeignKey(a => a.QuestionId);
 
-            // users have a one to many relationship with quizzes
-            modelBuilder.Entity<User>().HasMany(u => u.UsersQuizzes).WithOne(q => q.User).HasForeignKey(q => q.UserId);
+            // User - Quiz: One-to-many relationship
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.UsersQuizzes)
+                .WithOne(q => q.User)
+                .HasForeignKey(q => q.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

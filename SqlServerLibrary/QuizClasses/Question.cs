@@ -14,7 +14,7 @@ namespace SqlServerLibrary
     {
         // Question properties
         
-        public int QuestionId { get; set; } // get and set the question id
+        public int Id { get; set; } // get and set the question id
         public string QuestionText { get; set; } // get and set the question text
         public DateTime CreateDate { get; set; } // logs the creation date of the question  
         public List<Answer> Answers { get; set; } // get and set the answers to the question

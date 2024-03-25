@@ -12,7 +12,7 @@ namespace SqlServerLibrary.QuizClasses
     public class Quiz
     {
         // Quiz properties
-        public int QuizId { get; set; }// get and set the quiz id
+        public int Id { get; set; }// get and set the quiz id
         public string QuizName { get; set; }// get and set the quiz name
         public DateTime CreateDate { get; set; }// logs the creation date of the quiz
         public List<Question> Questions { get; set; } // navigation property for question class
