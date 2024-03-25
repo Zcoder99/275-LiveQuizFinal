@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerLibrary", "SqlServerLibrary\SqlServerLibrary.csproj", "{7002912F-65D3-42A9-8DE7-1370EF2A8B08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveQuizFinal", "LiveQuizFinal\LiveQuizFinal.csproj", "{B1FE62B2-518F-48FF-8994-BDD8F882EBFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7002912F-65D3-42A9-8DE7-1370EF2A8B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7002912F-65D3-42A9-8DE7-1370EF2A8B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7002912F-65D3-42A9-8DE7-1370EF2A8B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7002912F-65D3-42A9-8DE7-1370EF2A8B08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1FE62B2-518F-48FF-8994-BDD8F882EBFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1FE62B2-518F-48FF-8994-BDD8F882EBFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1FE62B2-518F-48FF-8994-BDD8F882EBFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1FE62B2-518F-48FF-8994-BDD8F882EBFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {347BD95B-EBA1-43A3-B0F8-1BA65E8D0C14}
+	EndGlobalSection
+EndGlobal
