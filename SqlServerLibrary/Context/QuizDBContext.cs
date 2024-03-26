@@ -49,9 +49,7 @@ namespace SqlServerLibrary.Context
                 .HasForeignKey(q => q.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // trying to relate the joint table quiz to user quizzes
-            //// many-to-many relationship 
-            //object value = modelBuilder.Entity<Quiz>().HasMany(u => u.UserQuizzes).WithOne(q => q.UserQuizId)
+          
 
             modelBuilder.Entity<Question>()
                 .HasIndex(q => q.UserId);

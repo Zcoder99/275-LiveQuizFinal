@@ -16,11 +16,10 @@ namespace SqlServerLibrary.QuizClasses
 
         // Foreign keys
         public int QuestionId { get; set; }
-        public int UserId { get; set; }
+
 
         // Navigation properties
         
         public Question Question { get; set; }
-        public User User { get; set; } // Navigation property for the user who provided the answer
     }
 }
