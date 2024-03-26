@@ -20,7 +20,8 @@ namespace SqlServerLibrary
         // Navigation properties
         public List<Answer> Answers { get; set; }
         public Quiz Quiz { get; set; }
-        public User User { get; set; } // This was missing in your original class
+        public User User { get; set; } 
+
         [Required]
         public int QuizId { get; set; }
         [Required]

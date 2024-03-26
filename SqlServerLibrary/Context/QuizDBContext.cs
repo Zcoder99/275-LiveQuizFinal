@@ -28,6 +28,7 @@ namespace SqlServerLibrary.Context
         // Configure relationships quiz 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Quiz - question: one-to-many relationship
             modelBuilder.Entity<Quiz>()
                 .HasMany(q => q.Questions)
                 .WithOne(q => q.Quiz)
@@ -47,6 +48,10 @@ namespace SqlServerLibrary.Context
                 .WithOne(q => q.User)
                 .HasForeignKey(q => q.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // trying to relate the joint table quiz to user quizzes
+            //// many-to-many relationship 
+            //object value = modelBuilder.Entity<Quiz>().HasMany(u => u.UserQuizzes).WithOne(q => q.UserQuizId)
 
             modelBuilder.Entity<Question>()
                 .HasIndex(q => q.UserId);

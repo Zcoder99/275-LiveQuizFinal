@@ -19,9 +19,9 @@ namespace SqlServerLibrary.QuizClasses
         public List<Question> Questions { get; set; } // navigation property for question class
         public List<UserQuiz> UserQuizzes { get; set; }
 
+        // i shouldnt need these referances because of the new table 
         // Navigation property for associated user
-        public User User { get; set; }
-        
-        public int UserId { get; set; }
+        //public User User { get; set; }
+        //public int UserId { get; set; }
     }
 }
