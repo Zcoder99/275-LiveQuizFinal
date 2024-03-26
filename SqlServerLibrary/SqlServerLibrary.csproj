@@ -20,6 +20,7 @@
   <ItemGroup>
     <Folder Include="InterfaceClasses\" />
     <Folder Include="LiveGameClasses\" />
+    <Folder Include="Migrations\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
