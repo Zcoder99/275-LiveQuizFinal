@@ -21,7 +21,7 @@ namespace SqlServerLibrary.QuizClasses
 
         // Navigation property for associated user
         public User User { get; set; }
-        [Required]
+        
         public int UserId { get; set; }
     }
 }

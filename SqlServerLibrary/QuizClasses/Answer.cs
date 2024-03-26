@@ -15,9 +15,7 @@ namespace SqlServerLibrary.QuizClasses
         public DateTime CreateDate { get; set; }
 
         // Foreign keys
-        [Required]
         public int QuestionId { get; set; }
-        [Required]
         public int UserId { get; set; }
 
         // Navigation properties
