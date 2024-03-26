@@ -15,10 +15,13 @@ namespace SqlServerLibrary.QuizClasses
         public int Id { get; set; }// get and set the quiz id
         public string QuizName { get; set; }// get and set the quiz name
         public DateTime CreateDate { get; set; }// logs the creation date of the quiz
+
         public List<Question> Questions { get; set; } // navigation property for question class
+        public List<UserQuiz> UserQuizzes { get; set; }
 
         // Navigation property for associated user
         public User User { get; set; }
+        [Required]
         public int UserId { get; set; }
     }
 }

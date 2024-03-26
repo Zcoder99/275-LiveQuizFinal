@@ -12,19 +12,18 @@ namespace SqlServerLibrary
 {
     public class Question
     {
-        // Question properties
-        
-        public int Id { get; set; } // get and set the question id
-        public string QuestionText { get; set; } // get and set the question text
-        public DateTime CreateDate { get; set; } // logs the creation date of the question  
-        public List<Answer> Answers { get; set; } // get and set the answers to the question
+        [Key]
+        public int Id { get; set; }
+        public string QuestionText { get; set; }
+        public DateTime CreateDate { get; set; }
 
-        // Navigation property for associated quiz
-       
+        // Navigation properties
+        public List<Answer> Answers { get; set; }
         public Quiz Quiz { get; set; }
-
-        // Navigation property for associated user
-        public User User { get; set; }
+        public User User { get; set; } // This was missing in your original class
+        [Required]
         public int QuizId { get; set; }
+        [Required]
+        public int UserId { get; set; }
     }
 }

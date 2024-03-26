@@ -1,6 +1,7 @@
 ﻿using SqlServerLibrary.UserClasses;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,16 +10,19 @@ namespace SqlServerLibrary.QuizClasses
 {
     public class Answer
     {
-        public int Id { get; set; } // get and set the answer id
-        public string AnswerText { get; set; } // get and set the answer text
-        public DateTime CreateDate { get; set; } // logs the creation date of the answer
+        public int Id { get; set; }
+        public string AnswerText { get; set; }
+        public DateTime CreateDate { get; set; }
 
         // Foreign keys
-        public int QuestionId { get; set; } // get and set the question id
-        public int UserId { get; set; } // get and set the user id
+        [Required]
+        public int QuestionId { get; set; }
+        [Required]
+        public int UserId { get; set; }
 
         // Navigation properties
-        public Question Question { get; set; } // navigation property for question class
-        public User User { get; set; } // navigation property for user class
+        
+        public Question Question { get; set; }
+        public User User { get; set; } // Navigation property for the user who provided the answer
     }
 }

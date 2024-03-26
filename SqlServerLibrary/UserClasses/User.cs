@@ -18,7 +18,7 @@ namespace SqlServerLibrary.UserClasses
 
 
         // navigation property for quiz class
-        public List<Quiz> UsersQuizzes { get; set; }
+        public List<UserQuiz> UsersQuizzes { get; set; }
 
     }
 }

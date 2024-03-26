@@ -28,20 +28,18 @@ namespace SqlServerLibrary.Context
         // Configure relationships quiz 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-            // Quiz - Question: One-to-many relationship
             modelBuilder.Entity<Quiz>()
                 .HasMany(q => q.Questions)
                 .WithOne(q => q.Quiz)
                 .HasForeignKey(q => q.QuizId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Question - Answer: One-to-many relationship
             modelBuilder.Entity<Question>()
                 .HasMany(q => q.Answers)
                 .WithOne(a => a.Question)
                 .HasForeignKey(a => a.QuestionId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
 
             // User - Quiz: One-to-many relationship
             modelBuilder.Entity<User>()
@@ -49,6 +47,9 @@ namespace SqlServerLibrary.Context
                 .WithOne(q => q.User)
                 .HasForeignKey(q => q.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Question>()
+                .HasIndex(q => q.UserId);
         }
     }
 }
