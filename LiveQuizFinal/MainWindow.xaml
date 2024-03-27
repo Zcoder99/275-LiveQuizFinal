@@ -20,6 +20,7 @@
         
             
             
+        
         <StackPanel>
             <TextBox
     MaxWidth="400"
@@ -29,12 +30,9 @@
     IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
    
     TextWrapping="Wrap" />
-            <Button
-  Width="150"
-  Content="Create Quiz"
-  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-  
-  ToolTip="Resource name: MaterialDesignRaisedLightButton" />
+                <Button Width="150" Content="Create Quiz"
+                IsEnabled="{Binding DataContext.ControleIsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"  
+                ToolTip="Resource name: MaterialDesignRaisedLightButton" />
         </StackPanel>
 
         

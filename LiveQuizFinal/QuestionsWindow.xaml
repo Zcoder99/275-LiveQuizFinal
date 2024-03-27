@@ -16,6 +16,8 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        
+        <StackPanel>
+            
+        </StackPanel>
     </Grid>
 </Window>
