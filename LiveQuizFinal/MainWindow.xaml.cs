@@ -25,9 +25,11 @@ namespace LiveQuizFinal
             InitializeComponent();
         }
         // refferance the button from xaml code UWU
-        private void CreateQuizButton_Click(object sender, RoutedEventArgs e)
-        {
+ 
+       
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

@@ -32,7 +32,7 @@
     TextWrapping="Wrap" />
                 <Button Width="150" Content="Create Quiz"
                 IsEnabled="{Binding DataContext.ControleIsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"  
-                ToolTip="Resource name: MaterialDesignRaisedLightButton" />
+                ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="Button_Click" />
         </StackPanel>
 
         
