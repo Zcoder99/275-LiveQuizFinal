@@ -51,8 +51,8 @@ namespace SqlServerLibrary.Context
 
           
 
-            modelBuilder.Entity<Question>()
-                .HasIndex(q => q.UserId);
+            //modelBuilder.Entity<Question>()
+            //    .HasIndex(q => q.UserId);
         }
     }
 }
