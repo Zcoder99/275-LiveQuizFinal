@@ -1,0 +1,3 @@
+﻿user enters name of quiz, clicks button to create quiz.
+Opens a new form to create questions list questions as created
+crated a digrame use that, not like im gonna look at this anyway
