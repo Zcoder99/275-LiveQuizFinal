@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LiveQuizFinal"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        
+        Style="{StaticResource MaterialDesignWindow}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
@@ -15,7 +15,28 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid>
+    <Grid Background="White">
+        <!--create quiz button-->
+        
+            
+            
+        <StackPanel>
+            <TextBox
+    MaxWidth="400"
+    VerticalAlignment="Top"
+    materialDesign:HintAssist.Hint="Quiz Name"
+    AcceptsReturn="True"
+    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
+   
+    TextWrapping="Wrap" />
+            <Button
+  Width="150"
+  Content="Create Quiz"
+  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+  
+  ToolTip="Resource name: MaterialDesignRaisedLightButton" />
+        </StackPanel>
 
+        
     </Grid>
 </Window>
