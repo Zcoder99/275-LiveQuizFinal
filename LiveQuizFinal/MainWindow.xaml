@@ -16,25 +16,29 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid Background="White">
-        <!--create quiz button-->
-        
-            
-            
-        
-        <StackPanel>
-            <TextBox
-    MaxWidth="400"
-    VerticalAlignment="Top"
-    materialDesign:HintAssist.Hint="Quiz Name"
-    AcceptsReturn="True"
-    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
+        <!--<materialDesign:Card Margin="20" Padding="20">-->
+
+
+        <StackPanel Margin="20" VerticalAlignment="Top" Width="200">
+            <Label Content="QUIZZLER" Width="81" ></Label>
+        </StackPanel>
+
+
+
+
+        <StackPanel Margin="10,0,30,181" VerticalAlignment="Bottom" Width="200">
+            <TextBox 
+                MaxWidth="400"
+                materialDesign:HintAssist.Hint="Quiz Name"
+                AcceptsReturn="True"
+                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
    
-    TextWrapping="Wrap" />
-                <Button Width="150" Content="Create Quiz"
-                IsEnabled="{Binding DataContext.ControleIsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"  
+                TextWrapping="NoWrap" Width="215" />
+            <Button Width="150" Content="Create Quiz" Margin="10"
+                IsEnabled="{Binding DataContext.ControleIsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"  
                 ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="Button_Click" />
         </StackPanel>
 
-        
+
     </Grid>
 </Window>
