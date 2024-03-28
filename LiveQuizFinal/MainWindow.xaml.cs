@@ -43,7 +43,9 @@ namespace LiveQuizFinal
                 quiz.QuizName = txt_QuizName.Text;
                 // next step sent name of quiz to data base.
                 
-                
+                // open Question Window
+                QuestionsWindow questionsWindow = new QuestionsWindow();
+                questionsWindow.Show();
             }
 
         }

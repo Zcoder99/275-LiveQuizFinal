@@ -26,13 +26,14 @@ namespace LiveQuizFinal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            // open a page to create answers for the question 
         }
 
 
         private void btn_AddQuestion_Click(object sender, RoutedEventArgs e)
         {
-            // get text from text box save 
+            // get text from text box save to db
+            // display in the 
         }
         private void btn_SaveToQuiz_Click(object sender, RoutedEventArgs e)
         {
