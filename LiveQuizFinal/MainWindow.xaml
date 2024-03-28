@@ -27,7 +27,7 @@
 
 
         <StackPanel Margin="10,0,30,181" VerticalAlignment="Bottom" Width="200">
-            <TextBox 
+            <TextBox x:Name="txt_QuizName" 
                 MaxWidth="400"
                 materialDesign:HintAssist.Hint="Quiz Name"
                 AcceptsReturn="True"

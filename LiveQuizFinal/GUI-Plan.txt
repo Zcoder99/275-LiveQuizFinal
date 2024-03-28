@@ -1,3 +1,57 @@
 ﻿user enters name of quiz, clicks button to create quiz.
 Opens a new form to create questions list questions as created
 crated a digrame use that, not like im gonna look at this anyway
+
+
+Use this For the Question app:
+
+<!-- the transitioner will manage your transitions. notice how SelectedIndex is set to zero: the first slide (instead of the default of -1) -->
+<materialDesign:Transitioner
+  AutoApplyTransitionOrigins="True"
+  SelectedIndex="0">
+  <materialDesign:Transitioner.InputBindings>
+    <KeyBinding
+      Key="Left"
+      Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" />
+    <KeyBinding
+      Key="Right"
+      Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" />
+  </materialDesign:Transitioner.InputBindings>
+  <!-- you can use a slide for each page, let's add a touch of fade for our first page -->
+  <materialDesign:TransitionerSlide
+    OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
+    <local:Slide1_Intro xmlns:local="clr-namespace:MaterialDesignDemo.TransitionsDemo" />
+  </materialDesign:TransitionerSlide>
+  <!-- but you can use bare xaml too -->
+  <local:Slide2_Intro xmlns:local="clr-namespace:MaterialDesignDemo.TransitionsDemo" />
+  <!-- you can control (and create your own) wipes -->
+  <materialDesign:TransitionerSlide>
+    <materialDesign:TransitionerSlide.BackwardWipe>
+      <materialDesign:CircleWipe />
+    </materialDesign:TransitionerSlide.BackwardWipe>
+    <materialDesign:TransitionerSlide.ForwardWipe>
+      <materialDesign:SlideWipe
+        Direction="Right" />
+    </materialDesign:TransitionerSlide.ForwardWipe>
+    <local:Slide3_Intro xmlns:local="clr-namespace:MaterialDesignDemo.TransitionsDemo" />
+  </materialDesign:TransitionerSlide>
+  <!-- now we are going to slide this in by combining some extra effects.  the inner content slides in, so we'll set the outer background and clip, to keep things nice -->
+  <materialDesign:TransitionerSlide
+    Background="{DynamicResource MaterialDesign.Brush.Background}"
+    ClipToBounds="True"
+    Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
+    <materialDesign:TransitionerSlide.OpeningEffects>
+      <materialDesign:TransitionEffect
+        Kind="SlideInFromLeft"
+        Duration="0:0:0.8" />
+      <materialDesign:TransitionEffect
+        Kind="SlideInFromBottom"
+        OffsetTime="0:0:0.15"
+        Duration="0:0:0.8" />
+    </materialDesign:TransitionerSlide.OpeningEffects>
+    <local:Slide4_CombineTransitions xmlns:local="clr-namespace:MaterialDesignDemo.TransitionsDemo" />
+  </materialDesign:TransitionerSlide>
+  <local:Slide5_TransitioningContent xmlns:local="clr-namespace:MaterialDesignDemo.TransitionsDemo" />
+  <local:Slide6_Origins xmlns:local="clr-namespace:MaterialDesignDemo.TransitionsDemo" />
+  <local:Slide7_MVVM xmlns:local="clr-namespace:MaterialDesignDemo.TransitionsDemo" />
+</materialDesign:Transitioner>

@@ -16,8 +16,94 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        <StackPanel>
-            
+        <StackPanel x:Name="Container" HorizontalAlignment="Left" Width="336" Margin="10">
+            <!--controle stack panle-->
+            <StackPanel>
+                <Label x:Name="lblQest1Win_prompt" Content="Add quiz questions here:" FontSize="16"></Label>
+                <TextBox x:Name="txt_Question" Margin="5"
+                    Height="100"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="This is a text area"
+                    AcceptsReturn="True"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto" 
+                />
+                
+                <Button x:Name="btn_AddQuestion" Width="170" VerticalAlignment="Bottom" Margin="7" 
+                    Content="Add Questoin To quiz" 
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="btn_AddQuestion_Click"
+                />
+                <StackPanel HorizontalAlignment="Center">
+                    <Label FontSize="13" Content="Select Type of question:"/>
+                    <RadioButton Margin="5" Content="True or False"/>
+                    <RadioButton Margin="5" Content="Multiple choice"/>
+                </StackPanel>
+            </StackPanel>
+            <Button x:Name="btn_Answers" 
+                    Content="Create answers" Width="170" Margin="6"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="Button_Click" 
+                />
+            <StackPanel  VerticalAlignment="Bottom" Margin="30" >
+                
+                <Button x:Name="btn_SaveToQuiz" Width="130" Margin="20"
+                    Content="Save Questions" 
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightButton" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Click="btn_SaveToQuiz_Click"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <StackPanel Margin="351,10,10,10">
+            <!--Displays the questions order in creation and shows what questions are in the quiz-->
+            <materialDesign:Card >
+                <!--Figure out if there is a way to add cards + text on button clicks-->
+                <StackPanel>
+                    <Expander 
+                        HorizontalAlignment="Stretch"
+                        Header="Expander Example 2a">
+                        <StackPanel
+                            Margin="24,8,24,16"
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                            <TextBlock Text="Your Content" />
+                            <!--Quiz text goes here-->
+                            <TextBlock/>
+                        </StackPanel>
+                    </Expander>
+                    <Border/>
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Expander Example 2b">
+                        <StackPanel
+                             Margin="24,8,24,16"
+                             Orientation="Vertical"
+                             TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                            <TextBlock Text="Your Content" />
+                            <!--Quiz text goes here-->
+                            <TextBlock/>
+                        </StackPanel>
+                    </Expander>
+                    <Border/>
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Expander Example 2c">
+                        <StackPanel
+                            Margin="24,8,24,16"
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                            <TextBlock Text="Your Content" />
+                            <!--Quiz text goes here-->
+                            <TextBlock/>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </materialDesign:Card>
         </StackPanel>
     </Grid>
 </Window>

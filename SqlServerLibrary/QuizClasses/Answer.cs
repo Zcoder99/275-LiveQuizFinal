@@ -13,6 +13,7 @@ namespace SqlServerLibrary.QuizClasses
         public int Id { get; set; }
         public string AnswerText { get; set; }
         public DateTime CreateDate { get; set; }
+        
 
         // Foreign keys
         public int QuestionId { get; set; }

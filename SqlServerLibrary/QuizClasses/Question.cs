@@ -12,6 +12,9 @@ namespace SqlServerLibrary
 {
     public class Question
     {
+        // add bool propertys T or F questions and Multiple choice 
+
+
         [Key]
         public int Id { get; set; }
         public string QuestionText { get; set; }

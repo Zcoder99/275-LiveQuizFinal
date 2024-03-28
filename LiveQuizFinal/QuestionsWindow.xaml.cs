@@ -23,5 +23,20 @@ namespace LiveQuizFinal
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void btn_AddQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            // get text from text box save 
+        }
+        private void btn_SaveToQuiz_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
