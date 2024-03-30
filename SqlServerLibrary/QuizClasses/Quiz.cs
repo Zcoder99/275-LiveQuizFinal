@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SqlServerLibrary.QuizClasses
 {
@@ -26,21 +27,21 @@ namespace SqlServerLibrary.QuizClasses
         //public int UserId { get; set; }
 
         // write method to save quiz to the database
-        public void SaveToDatabase()
+        public void SaveToDatabase(Quiz newQuiz)
         {
             try
             {
                 using (var context = new QuizDBContext())
-                {
-                    context.Quizzes.Add(this);
+                {                    
+                    context.Quizzes.Add(newQuiz);
                     context.SaveChanges();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-
+                MessageBox.Show($"Error saving quiz to database: {ex.Message}");
             }
-            
+
         }
     }
 }

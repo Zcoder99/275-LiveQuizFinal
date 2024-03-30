@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using SqlServerLibrary.QuizClasses;
 using SqlServerLibrary.UserClasses;
 
@@ -28,5 +29,20 @@ namespace SqlServerLibrary
         [Required]
         public int QuizId { get; set; }
 
+        public void SaveQuestionToQuiz()
+        {
+            try
+            {
+
+
+
+
+            }
+            catch
+            {
+                MessageBox.Show("idk figure it out yourself.");
+
+            }
+        }
     }
 }

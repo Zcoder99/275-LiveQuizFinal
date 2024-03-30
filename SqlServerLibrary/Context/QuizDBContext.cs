@@ -48,10 +48,6 @@ namespace SqlServerLibrary.Context
                 .WithOne(q => q.User)
                 .HasForeignKey(q => q.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-          
-
-
         }
     }
 }
