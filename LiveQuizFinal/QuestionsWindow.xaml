@@ -54,8 +54,6 @@
 
         <StackPanel Margin="351,10,10,10" VerticalAlignment="Bottom">
             <materialDesign:DialogHost x:Name ="diolog_ListQuestions"
-  DialogClosed="Sample5_DialogHost_OnDialogClosed"
-  DialogClosing="Sample5_DialogHost_OnDialogClosing"
   DialogMargin="8"
   Style="{StaticResource MaterialDesignEmbeddedDialogHost}">
                 <materialDesign:DialogHost.DialogContent>

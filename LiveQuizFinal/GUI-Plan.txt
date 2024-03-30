@@ -1,6 +1,9 @@
-﻿user enters name of quiz, clicks button to create quiz.
-Opens a new form to create questions list questions as created
-crated a digrame use that, not like im gonna look at this anyway
+﻿NEXT STEPS FOR THE QUESTION APP
+
+Make a new migration in EF Core
+update the database
+set up the answers window to create a new answer
+ect.
 
 
 Use this For the Question app:

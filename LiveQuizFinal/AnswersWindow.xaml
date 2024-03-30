@@ -16,22 +16,9 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Margin="50">
-            
-            <Button
-  Width="125"
-  Content="Save Answer"
-  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-  Style="{StaticResource MaterialDesignRaisedLightButton}"
-  ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="Button_Click" />
-            <!--add a new stackpanel here-->
-            <StackPanel>
-                
-
-            </StackPanel>
-            
-
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox x:Name="txtAnswer" Width="300" Height="100" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <Button Content="Save Answer" Width="150" Margin="10" Click="Button_Click"/>
         </StackPanel>
-
     </Grid>
 </Window>

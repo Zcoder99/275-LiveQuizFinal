@@ -30,6 +30,9 @@ namespace LiveQuizFinal
             this.question = question; // Assign the passed quiz object to the local variable
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace SqlServerLibrary
         {
              Answers = new List<Answer>();
         }
+
         [Key]
         public int Id { get; set; }
         public string QuestionText { get; set; }

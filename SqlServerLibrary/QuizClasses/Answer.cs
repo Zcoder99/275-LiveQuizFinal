@@ -1,4 +1,4 @@
-﻿using SqlServerLibrary.UserClasses;
+﻿using SqlServerLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,6 +10,7 @@ namespace SqlServerLibrary.QuizClasses
 {
     public class Answer
     {
+        [Key]
         public int Id { get; set; }
         public string AnswerText { get; set; }
         public DateTime CreateDate { get; set; }
