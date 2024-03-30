@@ -32,6 +32,7 @@ namespace LiveQuizFinal
             if (txt_QuizName.Text == "")// check for empty txtbox
             {
                 MessageBox.Show("Please fill in the text box to create a quiz.");
+                return;
             }
             else
             {
@@ -41,8 +42,8 @@ namespace LiveQuizFinal
                 quiz.CreateDate = DateTime.Now; // get the date it was created
                 quiz.SaveToDatabase(quiz);
 
-                // open Question Window
-                QuestionsWindow questionsWindow = new QuestionsWindow();
+                // Open QuestionsWindow and pass the quiz object
+                QuestionsWindow questionsWindow = new QuestionsWindow(quiz);
                 questionsWindow.Show();
             }
 

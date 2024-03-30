@@ -13,6 +13,13 @@ namespace SqlServerLibrary.QuizClasses
 {
     public class Quiz
     {
+
+        public Quiz()
+        {
+            // initialize the list of questions
+            Questions = new List<Question>();
+        }
+
         // Quiz properties
         public int Id { get; set; }// get and set the quiz id
         public string QuizName { get; set; }// get and set the quiz name
@@ -32,7 +39,7 @@ namespace SqlServerLibrary.QuizClasses
             try
             {
                 using (var context = new QuizDBContext())
-                {                    
+                {
                     context.Quizzes.Add(newQuiz);
                     context.SaveChanges();
                 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SqlServerLibrary;
+using SqlServerLibrary.QuizClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,30 @@ namespace LiveQuizFinal
     /// </summary>
     public partial class QuestionsWindow : Window
     {
-        public QuestionsWindow()
+        private Quiz quiz;// Store reference to the quiz
+        public QuestionsWindow(Quiz quiz)
         {
             InitializeComponent();
+            this.quiz = quiz; // Assign the passed quiz object to the local variable
+        }
+
+        private void btn_AddQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            if (txt_Question.Text == "")
+            {
+                MessageBox.Show("Please enter a question");
+                return;
+            }
+            else
+            {
+                string questionText = txt_Question.Text;
+
+                // passing the quiz id instead of the quiz object
+                new Question().SaveToQuestionsList(questionText, quiz.Id); 
+               
+                // provide feedback to the user
+                MessageBox.Show("Question added to the quiz");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -29,12 +52,6 @@ namespace LiveQuizFinal
             // open a page to create answers for the question 
         }
 
-
-        private void btn_AddQuestion_Click(object sender, RoutedEventArgs e)
-        {
-            // get text from text box save to db
-            // display in the 
-        }
         private void btn_SaveToQuiz_Click(object sender, RoutedEventArgs e)
         {
 
