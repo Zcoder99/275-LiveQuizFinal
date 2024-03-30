@@ -16,17 +16,22 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" Margin="50">
-            <Label FontSize="13" Content="Select Type of question:"/>
-            <RadioButton Margin="5" Content="True or False"/>
-            <RadioButton Margin="5" Content="Multiple choice"/>
-        </StackPanel>
-
-        <Button
+        <StackPanel HorizontalAlignment="Left" Margin="50">
+            
+            <Button
   Width="125"
-  Content="Save quiz"
+  Content="Save Answer"
   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
   Style="{StaticResource MaterialDesignRaisedLightButton}"
   ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="Button_Click" />
+            <!--add a new stackpanel here-->
+            <StackPanel>
+                
+
+            </StackPanel>
+            
+
+        </StackPanel>
+
     </Grid>
 </Window>

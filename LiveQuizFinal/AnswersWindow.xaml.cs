@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqlServerLibrary.QuizClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SqlServerLibrary;
+using SqlServerLibrary.QuizClasses;
 
 namespace LiveQuizFinal
 {
@@ -19,14 +22,14 @@ namespace LiveQuizFinal
     /// </summary>
     public partial class AnswersWindow : Window
     {
-        public AnswersWindow()
+        private Question question; // Store reference to the quiz
+
+        public AnswersWindow(Question question)
         {
             InitializeComponent();
+            this.question = question; // Assign the passed quiz object to the local variable
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

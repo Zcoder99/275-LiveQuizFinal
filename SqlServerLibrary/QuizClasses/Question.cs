@@ -17,12 +17,16 @@ namespace SqlServerLibrary
     public class Question
     {
         // add bool propertys T or F questions and Multiple choice 
-
-
+        public Question()
+        {
+             Answers = new List<Answer>();
+        }
         [Key]
         public int Id { get; set; }
         public string QuestionText { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; set; }      
+        public bool IsTrueFalse { get; set; }// bool peroperty for true or false questions        
+        public bool IsMultipleChoice { get; set; }// bool property for multiple choice questions
 
         // Navigation properties
         public List<Answer> Answers { get; set; }

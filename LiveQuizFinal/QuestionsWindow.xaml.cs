@@ -50,11 +50,10 @@ namespace LiveQuizFinal
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // open a page to create answers for the question 
+            Question question = new Question();
+            AnswersWindow answersWindow = new AnswersWindow(question);
+            answersWindow.Show();
         }
 
-        private void btn_SaveToQuiz_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

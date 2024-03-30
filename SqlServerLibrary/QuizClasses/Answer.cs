@@ -19,9 +19,6 @@ namespace SqlServerLibrary.QuizClasses
         public int QuestionId { get; set; }
 
         // Navigation properties       
-        public Question Question { get; set; }
-
-
-        
+        public Question Question { get; set; }       
     }
 }
