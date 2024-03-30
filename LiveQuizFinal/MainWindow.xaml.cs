@@ -25,24 +25,24 @@ namespace LiveQuizFinal
         public MainWindow()
         {
             InitializeComponent();
-            
-        }
-        
-        Quiz quiz = new Quiz();
 
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // check for empty txtbox
-            if(txt_QuizName.Text == "")
+            Quiz quiz = new Quiz();
+            
+            if (txt_QuizName.Text == "")// check for empty txtbox
             {
                 MessageBox.Show("Please fill in the text box to create a quiz.");
             }
             else
             {
+                // save the quiz name to the database
                 quiz.QuizName = txt_QuizName.Text;
-                // next step sent name of quiz to data base.
-                
+                quiz.CreateDate = DateTime.Now; // get the date it was created
+                quiz.SaveToDatabase();
+
                 // open Question Window
                 QuestionsWindow questionsWindow = new QuestionsWindow();
                 questionsWindow.Show();

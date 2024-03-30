@@ -1,4 +1,5 @@
-﻿using SqlServerLibrary.UserClasses;
+﻿using SqlServerLibrary.Context;
+using SqlServerLibrary.UserClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -23,5 +24,23 @@ namespace SqlServerLibrary.QuizClasses
         // Navigation property for associated user
         //public User User { get; set; }
         //public int UserId { get; set; }
+
+        // write method to save quiz to the database
+        public void SaveToDatabase()
+        {
+            try
+            {
+                using (var context = new QuizDBContext())
+                {
+                    context.Quizzes.Add(this);
+                    context.SaveChanges();
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
+        }
     }
 }

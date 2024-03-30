@@ -37,11 +37,7 @@
                     Style="{StaticResource MaterialDesignRaisedLightButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="btn_AddQuestion_Click"
                 />
-                <StackPanel HorizontalAlignment="Center">
-                    <Label FontSize="13" Content="Select Type of question:"/>
-                    <RadioButton Margin="5" Content="True or False"/>
-                    <RadioButton Margin="5" Content="Multiple choice"/>
-                </StackPanel>
+                
             </StackPanel>
             <Button x:Name="btn_Answers" 
                     Content="Create answers" Width="170" Margin="6"
