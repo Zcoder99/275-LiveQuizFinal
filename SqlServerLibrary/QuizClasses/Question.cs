@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using SqlServerLibrary.Context;
 using SqlServerLibrary.QuizClasses;
 using SqlServerLibrary.UserClasses;
 
@@ -29,11 +30,15 @@ namespace SqlServerLibrary
         [Required]
         public int QuizId { get; set; }
 
+        // method in progress
         public void SaveQuestionToQuiz()
         {
             try
             {
+                using (var db = new QuizDBContext())
+                {
 
+                }
 
 
 

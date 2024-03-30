@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="InterfaceClasses\**" />
+    <Compile Remove="LiveGameClasses\**" />
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="InterfaceClasses\**" />
+    <EmbeddedResource Remove="LiveGameClasses\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="InterfaceClasses\**" />
+    <None Remove="LiveGameClasses\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="3.0.0" />
     <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.16" />
@@ -18,10 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="InterfaceClasses\" />
-    <Folder Include="LiveGameClasses\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
