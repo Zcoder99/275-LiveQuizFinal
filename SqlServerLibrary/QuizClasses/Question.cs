@@ -38,7 +38,7 @@ namespace SqlServerLibrary
         public int QuizId { get; set; }
 
         //Save changes to the database.
-        public void SaveToQuestionsList(string text, int quizId)
+        public static void SaveToQuestionsList(string text, int quizId, bool isTrueFalse,bool isMultiChoice)
         {
             try
             {
@@ -49,7 +49,9 @@ namespace SqlServerLibrary
                     var newQuestion = new Question
                     {
                         QuestionText = text,
-                        QuizId = quizId // Assign the quiz id to the new question
+                        QuizId = quizId, // Assign the quiz id to the new question
+                        IsTrueFalse = isTrueFalse,
+                        IsMultipleChoice = isMultiChoice
                     };
 
                     // Add the new question to the database context

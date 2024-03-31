@@ -35,16 +35,24 @@ namespace LiveQuizFinal
                 MessageBox.Show("Please enter a question");
                 return;
             }
-            else
-            {
-                string questionText = txt_Question.Text;
 
-                // passing the quiz id instead of the quiz object
-                new Question().SaveToQuestionsList(questionText, quiz.Id); 
-               
-                // provide feedback to the user
-                MessageBox.Show("Question added to the quiz");
+            // Check if a radio button is checked
+            if (Rdo_Btn_TorF.IsChecked == false && Rdo_Btn_MultiChoice.IsChecked == false)
+            {
+                MessageBox.Show("Please select a question type");
+                return;
             }
+            // Determine question type based on radio button selection
+            bool isTrueFalse = Rdo_Btn_TorF.IsChecked == true;
+            bool isMultipleChoice = Rdo_Btn_MultiChoice.IsChecked == true;
+
+            // Set question properties based on radio button selection
+            string questionText = txt_Question.Text;        
+
+            Question.SaveToQuestionsList(questionText, quiz.Id, isTrueFalse, isMultipleChoice);
+
+            // Provide feedback to the user
+            MessageBox.Show("Question added to the quiz");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,6 +62,6 @@ namespace LiveQuizFinal
             AnswersWindow answersWindow = new AnswersWindow(question);
             answersWindow.Show();
         }
-
-    }
+    }   
 }
+

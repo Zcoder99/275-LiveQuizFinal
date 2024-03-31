@@ -33,8 +33,8 @@
 
                 <StackPanel HorizontalAlignment="Center">
                     <Label FontSize="13" Content="Select Type of question:"/>
-                    <RadioButton Margin="5" Content="True or False"/>
-                    <RadioButton Margin="5" Content="Multiple choice"/>
+                    <RadioButton x:Name="Rdo_Btn_TorF" Margin="5" Content="True or False"/>
+                    <RadioButton x:Name="Rdo_Btn_MultiChoice" Margin="5" Content="Multiple choice"/>
                 </StackPanel>
                 <Button x:Name="btn_AddQuestion" Width="170" VerticalAlignment="Bottom" Margin="7" 
                     Content="Add Questoin To quiz" 
