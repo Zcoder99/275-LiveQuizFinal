@@ -58,9 +58,20 @@ namespace LiveQuizFinal
                 MessageBox.Show("Question added to the quiz");
                 // Clear the text box
                 txt_Question.Text = "";
-                AnswersWindow answersWindow = new AnswersWindow(questionId); // Create a new instance of the AnswersWindow class
-                answersWindow.Show();
-            }else
+                // if True or False is selected dont open the answer window
+                if (isTrueFalse)
+                {
+                    // provide feedback to the user that t or f questions do not require answers
+                    MessageBox.Show("True or False questions do not require answers");
+                    return;
+                }
+                else if (isMultipleChoice)
+                {
+                    AnswersWindow answersWindow = new AnswersWindow(questionId); // Create a new instance of the AnswersWindow class
+                    answersWindow.Show();
+                }
+            }
+            else
             {
                 MessageBox.Show("Error adding question to the quiz");
             }
@@ -68,7 +79,7 @@ namespace LiveQuizFinal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
     }
 }

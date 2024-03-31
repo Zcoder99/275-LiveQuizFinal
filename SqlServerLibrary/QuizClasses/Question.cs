@@ -60,8 +60,7 @@ namespace SqlServerLibrary
                     // Save the changes to the database
                     db.SaveChanges();
                     
-                    return newQuestion.Id; // Return the id of the new question
-                                     
+                    return newQuestion.Id; // Return the id of the new question                                   
                 }
             }
             catch (Exception ex)
