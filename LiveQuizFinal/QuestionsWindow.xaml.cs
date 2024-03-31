@@ -30,7 +30,7 @@ namespace LiveQuizFinal
 
         private void btn_AddQuestion_Click(object sender, RoutedEventArgs e)
         {
-            if (txt_Question.Text == "")
+            if (txt_Question.Text == "") // Check if the question text is empty
             {
                 MessageBox.Show("Please enter a question");
                 return;
@@ -42,26 +42,34 @@ namespace LiveQuizFinal
                 MessageBox.Show("Please select a question type");
                 return;
             }
+
             // Determine question type based on radio button selection
             bool isTrueFalse = Rdo_Btn_TorF.IsChecked == true;
             bool isMultipleChoice = Rdo_Btn_MultiChoice.IsChecked == true;
 
             // Set question properties based on radio button selection
-            string questionText = txt_Question.Text;        
+            string questionText = txt_Question.Text;
 
-            Question.SaveToQuestionsList(questionText, quiz.Id, isTrueFalse, isMultipleChoice);
+            int questionId = Question.SaveToQuestionsList(questionText, quiz.Id, isTrueFalse, isMultipleChoice);
 
-            // Provide feedback to the user
-            MessageBox.Show("Question added to the quiz");
+            if (questionId != -1) // Check if the question was added to the database
+            {
+                // Provide feedback to the user
+                MessageBox.Show("Question added to the quiz");
+                // Clear the text box
+                txt_Question.Text = "";
+                AnswersWindow answersWindow = new AnswersWindow(questionId); // Create a new instance of the AnswersWindow class
+                answersWindow.Show();
+            }else
+            {
+                MessageBox.Show("Error adding question to the quiz");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // open a page to create answers for the question 
-            Question question = new Question();
-            AnswersWindow answersWindow = new AnswersWindow(question);
-            answersWindow.Show();
+            
         }
-    }   
+    }
 }
 

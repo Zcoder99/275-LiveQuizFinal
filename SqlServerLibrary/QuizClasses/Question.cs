@@ -12,6 +12,7 @@ using SqlServerLibrary.QuizClasses;
 using SqlServerLibrary.UserClasses;
 using static System.Net.Mime.MediaTypeNames;
 
+
 namespace SqlServerLibrary
 {
     public class Question
@@ -38,13 +39,12 @@ namespace SqlServerLibrary
         public int QuizId { get; set; }
 
         //Save changes to the database.
-        public static void SaveToQuestionsList(string text, int quizId, bool isTrueFalse,bool isMultiChoice)
+        public static int SaveToQuestionsList(string text, int quizId, bool isTrueFalse,bool isMultiChoice)
         {
             try
             {
                 using (var db = new QuizDBContext())
                 {
-
                     // Create a new instance of the Question class and set its properties
                     var newQuestion = new Question
                     {
@@ -56,15 +56,19 @@ namespace SqlServerLibrary
 
                     // Add the new question to the database context
                     db.Questions.Add(newQuestion);
-                    
+
                     // Save the changes to the database
                     db.SaveChanges();
-                }            
+                    
+                    return newQuestion.Id; // Return the id of the new question
+                                     
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show($"Error saving question to the database: {ex.Message}");
+                return -1; // Return -1 to indicate an error
             }
 
         }
