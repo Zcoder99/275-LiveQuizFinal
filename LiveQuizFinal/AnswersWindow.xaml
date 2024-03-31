@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LiveQuizFinal"
         mc:Ignorable="d"
-        Title="AnswersWindow" Height="450" Width="800"
+        Title="AnswersWindow" Height="250" Width="450"
         Style="{StaticResource MaterialDesignWindow}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -17,7 +17,7 @@
      FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox x:Name="txtAnswer" Width="300" Height="100" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <TextBox x:Name="txtAnswer" Width="300" Height="50" TextWrapping="Wrap" AcceptsReturn="True"/>
             <Button Content="Save Answer" Width="150" Margin="10" Click="Button_Click"/>
         </StackPanel>
     </Grid>

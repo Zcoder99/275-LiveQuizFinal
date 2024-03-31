@@ -17,7 +17,6 @@
      FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
         <StackPanel x:Name="Container" HorizontalAlignment="Left" Width="336" Margin="10">
-            <!--controle stack panle-->
             <StackPanel>
                 <Label x:Name="lblQest1Win_prompt" Content="Add quiz questions here:" FontSize="16"></Label>
                 <TextBox x:Name="txt_Question" Margin="5"
@@ -43,15 +42,9 @@
                     ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="btn_AddQuestion_Click"
                 />
             </StackPanel>
-            <Button x:Name="btn_Answers" 
-                    Content="Create answers" Width="170" Margin="6"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                    Style="{StaticResource MaterialDesignRaisedLightButton}"
-                    ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="Button_Click" 
-            />
-            <StackPanel  VerticalAlignment="Bottom" Margin="30" />
         </StackPanel>
-
+        
+        <!--if i have time move addquestion funconality to the dialog box-->
         <StackPanel Margin="351,10,10,10" VerticalAlignment="Bottom">
             <materialDesign:DialogHost x:Name ="diolog_ListQuestions"
   DialogMargin="8"
