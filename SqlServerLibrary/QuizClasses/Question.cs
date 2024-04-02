@@ -51,7 +51,8 @@ namespace SqlServerLibrary
                         QuestionText = text,
                         QuizId = quizId, // Assign the quiz id to the new question
                         IsTrueFalse = isTrueFalse,
-                        IsMultipleChoice = isMultiChoice
+                        IsMultipleChoice = isMultiChoice,
+                        CreateDate = DateTime.Now
                     };
 
                     // Add the new question to the database context
