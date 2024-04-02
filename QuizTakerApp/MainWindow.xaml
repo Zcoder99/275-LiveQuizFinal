@@ -18,33 +18,9 @@
     <Grid >
 
         <materialDesign:Transitioner AutoApplyTransitionOrigins="True" SelectedIndex="0">
-            <!--<materialDesign:Transitioner.InputBindings>
-                <KeyBinding Key="Left" Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" />
-                <KeyBinding Key="Right" Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" />
-            </materialDesign:Transitioner.InputBindings>-->
-            <materialDesign:TransitionerSlide>
-                <materialDesign:TransitionerSlide.BackwardWipe>
-                    <materialDesign:CircleWipe />
-                </materialDesign:TransitionerSlide.BackwardWipe>
-                <materialDesign:TransitionerSlide.ForwardWipe>
-                    <materialDesign:SlideWipe
-        Direction="Right" />
-                </materialDesign:TransitionerSlide.ForwardWipe>
-            </materialDesign:TransitionerSlide>
-
-            <materialDesign:TransitionerSlide
-                Background="{DynamicResource MaterialDesign.Brush.Background}"
-                ClipToBounds="True"
-                Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
-                <materialDesign:TransitionerSlide.OpeningEffects>
-                    <materialDesign:TransitionEffect
-                        Kind="SlideInFromLeft"
-                        Duration="0:0:0.8" />
-                    <materialDesign:TransitionEffect Kind="SlideInFromBottom" OffsetTime="0:0:0.15" Duration="0:0:0.8" />
-                </materialDesign:TransitionerSlide.OpeningEffects>
-            </materialDesign:TransitionerSlide>
+           
         </materialDesign:Transitioner>
-        
-        
+
+
     </Grid>
 </Window>
