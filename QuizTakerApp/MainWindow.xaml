@@ -14,13 +14,53 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         >
-    
-    <Grid >
 
-        <materialDesign:Transitioner AutoApplyTransitionOrigins="True" SelectedIndex="0">
-           
-        </materialDesign:Transitioner>
-
-
-    </Grid>
+    <!-- the transitioner will manage your transitions. notice how SelectedIndex is set to zero: the first slide (instead of the default of -1) -->
+    <materialDesign:Transitioner
+  AutoApplyTransitionOrigins="True"
+  SelectedIndex="0">
+        <materialDesign:Transitioner.InputBindings>
+            <KeyBinding
+      Key="Left"
+      Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" />
+            <KeyBinding
+      Key="Right"
+      Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" />
+        </materialDesign:Transitioner.InputBindings>
+        <!-- you can use a slide for each page, let's add a touch of fade for our first page -->
+        <materialDesign:TransitionerSlide
+    OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
+            
+        </materialDesign:TransitionerSlide>
+        <!-- but you can use bare xaml too -->
+        
+        <!-- you can control (and create your own) wipes -->
+        <materialDesign:TransitionerSlide>
+            <materialDesign:TransitionerSlide.BackwardWipe>
+                <materialDesign:CircleWipe />
+            </materialDesign:TransitionerSlide.BackwardWipe>
+            <materialDesign:TransitionerSlide.ForwardWipe>
+                <materialDesign:SlideWipe
+        Direction="Right" />
+            </materialDesign:TransitionerSlide.ForwardWipe>
+            
+        </materialDesign:TransitionerSlide>
+        <!-- now we are going to slide this in by combining some extra effects.  the inner content slides in, so we'll set the outer background and clip, to keep things nice -->
+        <materialDesign:TransitionerSlide
+    Background="{DynamicResource MaterialDesign.Brush.Background}"
+    ClipToBounds="True"
+    Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
+            <materialDesign:TransitionerSlide.OpeningEffects>
+                <materialDesign:TransitionEffect
+        Kind="SlideInFromLeft"
+        Duration="0:0:0.8" />
+                <materialDesign:TransitionEffect
+        Kind="SlideInFromBottom"
+        OffsetTime="0:0:0.15"
+        Duration="0:0:0.8" />
+            </materialDesign:TransitionerSlide.OpeningEffects>
+            
+        </materialDesign:TransitionerSlide>
+        
+    </materialDesign:Transitioner>
 </Window>
