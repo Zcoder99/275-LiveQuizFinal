@@ -1,0 +1,50 @@
+﻿<Window x:Class="QuizTakerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        >
+    
+    <Grid >
+
+        <materialDesign:Transitioner AutoApplyTransitionOrigins="True" SelectedIndex="0">
+            <!--<materialDesign:Transitioner.InputBindings>
+                <KeyBinding Key="Left" Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" />
+                <KeyBinding Key="Right" Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" />
+            </materialDesign:Transitioner.InputBindings>-->
+            <materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide.BackwardWipe>
+                    <materialDesign:CircleWipe />
+                </materialDesign:TransitionerSlide.BackwardWipe>
+                <materialDesign:TransitionerSlide.ForwardWipe>
+                    <materialDesign:SlideWipe
+        Direction="Right" />
+                </materialDesign:TransitionerSlide.ForwardWipe>
+            </materialDesign:TransitionerSlide>
+
+            <materialDesign:TransitionerSlide
+                Background="{DynamicResource MaterialDesign.Brush.Background}"
+                ClipToBounds="True"
+                Foreground="{DynamicResource MaterialDesign.Brush.Foreground}">
+                <materialDesign:TransitionerSlide.OpeningEffects>
+                    <materialDesign:TransitionEffect
+                        Kind="SlideInFromLeft"
+                        Duration="0:0:0.8" />
+                    <materialDesign:TransitionEffect Kind="SlideInFromBottom" OffsetTime="0:0:0.15" Duration="0:0:0.8" />
+                </materialDesign:TransitionerSlide.OpeningEffects>
+            </materialDesign:TransitionerSlide>
+        </materialDesign:Transitioner>
+        
+        
+    </Grid>
+</Window>
