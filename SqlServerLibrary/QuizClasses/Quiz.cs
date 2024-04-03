@@ -28,7 +28,7 @@ namespace SqlServerLibrary.QuizClasses
         public List<Question> Questions { get; set; } // navigation property for question class
         public List<UserQuiz> UserQuizzes { get; set; }
 
-       
+
 
         // write method to save quiz to the database
         public void SaveToDatabase(Quiz newQuiz)

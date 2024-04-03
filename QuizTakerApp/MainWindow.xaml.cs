@@ -1,4 +1,5 @@
 ﻿using SqlServerLibrary;
+using SqlServerLibrary.QuizClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +22,51 @@ namespace QuizTakerApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Quiz> Quizzes { get; set; }
         QuiznessLayer quiznessLayer = new QuiznessLayer();
         public MainWindow()
         {
             InitializeComponent();
-            var quizzes = quiznessLayer.GetQuizWithQuestionsAndAnswers();
+            
+            Quizzes = new List<Quiz>();
+
+            // Call GetQuizNames and display them in lstQuizList listbox
+            foreach (var quiz in quiznessLayer.GetQuizWithQuestionsAndAnswers())
+            {
+                //lstQuizList.Items.Add(quiz);
+                Quizzes.Add(quiz);
+
+            }
+            lstQuizList.ItemsSource = Quizzes;
+
+            
+            //foreach (var quiz in quizzes)
+            //{
+            //    var quizItem = new TreeViewItem();
+            //    quizItem.Header = quiz.QuizName;
+            //    foreach (var question in quiz.Questions)
+            //    {
+            //        var questionItem = new TreeViewItem();
+            //        questionItem.Header = question.QuestionText;
+            //        foreach (var answer in question.Answers)
+            //        {
+            //            var answerItem = new TreeViewItem();
+            //            answerItem.Header = answer.AnswerText;
+            //            questionItem.Items.Add(answerItem);
+            //        }
+            //        quizItem.Items.Add(questionItem);
+            //    }
+            //    treeView.Items.Add(quizItem);
+            //}
         }
-        
-        
+
+        private void lstQuizList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Quiz quiz = (Quiz)lstQuizList.SelectedItem;
+            TestLiveQuiz testLiveQuiz = new TestLiveQuiz(quiz);
+            testLiveQuiz.Show();
+        }
+
+        // 
     }
 }

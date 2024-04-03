@@ -9,33 +9,60 @@
         Title="MainWindow" Height="450" Width="800"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
+        TextElement.FontSize="13"        
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
+        Background="White"
+        FontFamily="{DynamicResource MaterialDesignFont}"        
         >
 
     <!-- the transitioner will manage your transitions. notice how SelectedIndex is set to zero: the first slide (instead of the default of -1) -->
     <Grid>
-        <materialDesign:Transitioner AutoApplyTransitionOrigins="True" SelectedIndex="0">
-            <materialDesign:TransitionerSlide>
-                <Grid x:Name="QuestionsGrid">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="6*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Rectangle Fill="Black" Width="auto" Height="200"/>
-                    <Button Grid.Row="1" Grid.Column="0" Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" Content="Previous"/>
-                    <Button Grid.Row="1" Grid.Column="1" Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" Content="NEXT"/>
-                </Grid>
-            </materialDesign:TransitionerSlide>
-            <local:TestControl QuestionId="1"/>
-            <materialDesign:TransitionerSlide/>
-        </materialDesign:Transitioner>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="6*" />
+        </Grid.ColumnDefinitions>
+
+        <GroupBox
+            Margin="10"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+            Width="400"
+            Height="300"
+            materialDesign:ColorZoneAssist.Background="Black"
+            materialDesign:ColorZoneAssist.Foreground="White"
+            materialDesign:ColorZoneAssist.Mode="Custom"
+            Header="Select a quiz"
+            Style="{StaticResource MaterialDesignGroupBox}">
+
+
+
+            <ListBox x:Name="lstQuizList" IsEnabled="{Binding IsChecked, ElementName=EnableListBox}" Grid.RowSpan="2"
+                     
+                     DisplayMemberPath="QuizName" SelectionChanged="lstQuizList_SelectionChanged"
+                     >
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="materialDesign:ListBoxItemAssist.HoverBackground" Value="Fuchsia"/>
+                        <Setter Property="materialDesign:ListBoxItemAssist.SelectedFocusedBackground" Value="Fuchsia"/>
+                        <Setter Property="materialDesign:ListBoxItemAssist.SelectedUnfocusedBackground" Value="Lime"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+        </GroupBox>
+
+
+        <Button Grid.Row="2" x:Name="btnStartQuiz"
+            Grid.ColumnSpan="2"
+            Width="200"
+            Content="Start Quiz"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="110,376,110,20" 
+        />
     </Grid>
 </Window>

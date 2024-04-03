@@ -24,7 +24,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
             <!--Center text-->
-        <materialDesign:Card
+        <materialDesign:Card          
             Grid.ColumnSpan="2"
                 Width="auto"
                 Padding="8"
