@@ -1,5 +1,4 @@
-﻿using SqlServerLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,21 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SqlServerLibrary.Context;
 
 namespace QuizTakerApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for TestControle.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TestControl : UserControl
     {
-        QuiznessLayer quiznessLayer = new QuiznessLayer();
-        public MainWindow()
+        public int QuestionId { get; set; }
+        public TestControl()
         {
             InitializeComponent();
-            var quizzes = quiznessLayer.GetQuizWithQuestionsAndAnswers();
         }
-        
-        
+        // use then include in linq query to get the quiz and Questions and answers
+
+
     }
 }
