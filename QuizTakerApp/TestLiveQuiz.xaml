@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="TestLiveQuiz" Height="450" Width="800">
     <Grid>
-        <!--StackPanle to hold the user controle-->
-        <StackPanel x:Name="QuestionsContainer">
-            
-            
-        </StackPanel>
+        <!-- Use a Grid instead of StackPanel -->
+        <Grid x:Name="QuestionsContainer">
+            <!-- Define a single row that fills the available height -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        </Grid>
     </Grid>
 </Window>
