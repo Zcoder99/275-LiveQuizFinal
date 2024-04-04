@@ -65,8 +65,9 @@ namespace QuizTakerApp
             Quiz quiz = (Quiz)lstQuizList.SelectedItem;
             TestLiveQuiz testLiveQuiz = new TestLiveQuiz(quiz);
             testLiveQuiz.Show();
+
         }
 
-        // 
+       
     }
 }

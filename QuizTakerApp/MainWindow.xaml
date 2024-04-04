@@ -54,15 +54,5 @@
                 </ListBox.ItemContainerStyle>
             </ListBox>
         </GroupBox>
-
-
-        <Button Grid.Row="2" x:Name="btnStartQuiz"
-            Grid.ColumnSpan="2"
-            Width="200"
-            Content="Start Quiz"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="110,376,110,20" 
-        />
     </Grid>
 </Window>

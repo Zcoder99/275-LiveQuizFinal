@@ -1,12 +1,12 @@
 ﻿<UserControl x:Class="QuizTakerApp.TestControl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:QuizTakerApp"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:QuizTakerApp"
+        mc:Ignorable="d" 
+        d:DesignHeight="450" d:DesignWidth="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -18,27 +18,46 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
+        <Grid.RowDefinitions >
             <RowDefinition Height="6*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-            <!--Center text-->
+        <!--Center text-->
         <materialDesign:Card          
-            Grid.ColumnSpan="2"
-                Width="auto"
-                Padding="8"
-                Background="Red"
-                Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
-            <TextBlock
-                 FontSize="16"
-                 Text="Boring Text"    
+            Grid.ColumnSpan="3"
+            Width="auto"
+            Padding="8"
+            Background="White"
+            Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
+            <TextBlock x:Name="QuestionTxtBolck"
+                 TextAlignment="Center"                 
+                 FontSize="24"
+                 Text="Question text here" 
             />
+
         </materialDesign:Card>
-        <Button Grid.Row="1" Grid.Column="0" Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">
+        <StackPanel x:Name="AnswersStackPanel"
+                    Grid.ColumnSpan="3"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="Brown">
+
+        </StackPanel>
+
+        <Button Grid.Row="1" Grid.Column="0"                 
+                Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" 
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                Width="200">
             Previous
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">
+
+        <Button Grid.Row="1" Grid.Column="1" 
+                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" 
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                Width="200">
             NEXT
         </Button>
     </Grid>

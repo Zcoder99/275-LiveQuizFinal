@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="TestLiveQuiz" Height="450" Width="800">
     <Grid>
-        
+        <!--StackPanle to hold the user controle-->
+        <StackPanel x:Name="QuestionsContainer">
+            
+            
+        </StackPanel>
     </Grid>
 </Window>
