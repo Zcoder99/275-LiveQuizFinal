@@ -37,7 +37,7 @@ namespace QuizTakerApp
                 Quizzes.Add(quiz);
 
             }
-            lstQuizList.ItemsSource = Quizzes;
+            lstQuizList.ItemsSource = Quizzes; // bind the list to the listbox
 
             
             //foreach (var quiz in quizzes)

@@ -62,7 +62,18 @@ namespace QuizTakerApp
             }          
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e) 
+        {
+            // save the answer in a var and check if it is correct
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+
         // use then include in linq query to get the quiz and Questions and answers
 
 
