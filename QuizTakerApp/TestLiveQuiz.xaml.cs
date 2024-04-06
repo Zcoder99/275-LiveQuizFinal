@@ -1,4 +1,5 @@
-﻿using SqlServerLibrary.QuizClasses;
+﻿using MaterialDesignThemes.Wpf.Transitions;
+using SqlServerLibrary.QuizClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,17 +27,29 @@ namespace QuizTakerApp
         public TestLiveQuiz(Quiz selectedQuiz)
         {
             InitializeComponent();
-            SelectedQuiz = selectedQuiz;
+            SelectedQuiz = selectedQuiz; // set the selected quiz
+
+            
+            Transitioner transitioner = new Transitioner();
 
             foreach (var question in SelectedQuiz.Questions)
             {
                 // create a new instance of the TestControl
                 TestControl questionControl = new TestControl(question);
-                // add the controle to the stackpanel
-                QuestionsContainer.Children.Add(questionControl);
+
+                // create a transitionerSilde for the control
+                var slide = new TransitionerSlide();
+                slide.Content = questionControl;
+
+                
+
                 // get the test of the current question
                 questionControl.QuestionText = question.QuestionText;
+
+                // Add the transitionerSlide to the transitioner                
+                TransitionerControl.Items.Add(slide);
             }
+           
         }
     }
 }

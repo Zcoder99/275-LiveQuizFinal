@@ -19,7 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -40,24 +40,8 @@
                  FontSize="24"
                  Text="Question text here" 
             />
-
         </materialDesign:Card>
 
-        <StackPanel x:Name="AnswersStackPanel" Grid.ColumnSpan="2" Grid.Row="1"            
-                    Background="Brown">
-
-        </StackPanel>
-
-        <Button Grid.Row="2" Grid.Column="0"           
-                Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"                 
-                Width="auto" Click="Button_Click">
-            Previous
-        </Button>
-
-        <Button Grid.Row="2" Grid.Column="1" IsEnabled="True" 
-                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"                
-                Width="auto" Click="Button_Click_1">
-            NEXT
-        </Button>
+        <StackPanel x:Name="AnswersStackPanel" Grid.ColumnSpan="2" Grid.Row="1" Background="LightBlue"></StackPanel>
     </Grid>
 </UserControl>

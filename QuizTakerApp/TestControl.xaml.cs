@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf.Transitions;
 using SqlServerLibrary;
 using SqlServerLibrary.Context;
 
@@ -40,9 +41,7 @@ namespace QuizTakerApp
             // Check if the question is multiple choice or True/False
             // Check if the question is multiple choice or True/False          
             if (question.IsMultipleChoice)
-            { 
-                // if multiple choice == 0 skip this generation of radio buttons
-                
+            {
                 // loop through the answers and add them to the radio buttons
                 foreach (var answer in question.Answers)
                 {
@@ -51,31 +50,16 @@ namespace QuizTakerApp
                     radioButton.GroupName = "Answers";
                     AnswersStackPanel.Children.Add(radioButton);
                 }
-            }else if (question.IsTrueFalse)
+            }
+            else if (question.IsTrueFalse)
             {
                 // Generate 2 radio buttons for True/False
                 RadioButton rb_True = new RadioButton();
                 RadioButton rb_False = new RadioButton();
                 // Set the content of the radio buttons
                 rb_True.Content = "True";
-                rb_False.Content = "False";                
-            }          
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e) 
-        {
-            // save the answer in a var and check if it is correct
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-
-        // use then include in linq query to get the quiz and Questions and answers
-
-
+                rb_False.Content = "False";
+            }
+        }        
     }
 }

@@ -37,27 +37,7 @@ namespace QuizTakerApp
                 Quizzes.Add(quiz);
 
             }
-            lstQuizList.ItemsSource = Quizzes; // bind the list to the listbox
-
-            
-            //foreach (var quiz in quizzes)
-            //{
-            //    var quizItem = new TreeViewItem();
-            //    quizItem.Header = quiz.QuizName;
-            //    foreach (var question in quiz.Questions)
-            //    {
-            //        var questionItem = new TreeViewItem();
-            //        questionItem.Header = question.QuestionText;
-            //        foreach (var answer in question.Answers)
-            //        {
-            //            var answerItem = new TreeViewItem();
-            //            answerItem.Header = answer.AnswerText;
-            //            questionItem.Items.Add(answerItem);
-            //        }
-            //        quizItem.Items.Add(questionItem);
-            //    }
-            //    treeView.Items.Add(quizItem);
-            //}
+            lstQuizList.ItemsSource = Quizzes; // bind the list to the listbox           
         }
 
         private void lstQuizList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -65,7 +45,6 @@ namespace QuizTakerApp
             Quiz quiz = (Quiz)lstQuizList.SelectedItem;
             TestLiveQuiz testLiveQuiz = new TestLiveQuiz(quiz);
             testLiveQuiz.Show();
-
         }
 
        
