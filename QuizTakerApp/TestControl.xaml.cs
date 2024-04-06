@@ -59,7 +59,13 @@ namespace QuizTakerApp
                 // Set the content of the radio buttons
                 rb_True.Content = "True";
                 rb_False.Content = "False";
+                // Set the group name of the radio buttons
+                rb_True.GroupName = "Answers";
+                rb_False.GroupName = "Answers";
+                // Add the radio buttons to the stack panel
+                AnswersStackPanel.Children.Add(rb_True);
+                AnswersStackPanel.Children.Add(rb_False);
             }
-        }        
+        }
     }
 }
