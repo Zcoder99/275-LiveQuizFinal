@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Transitions;
 using SqlServerLibrary;
 using SqlServerLibrary.Context;
@@ -26,11 +27,6 @@ namespace QuizTakerApp
         private Question question;
 
         public int QuestionId { get; set; }
-        public string QuestionText
-        {
-            get { return QuestionTxtBolck.Text; }
-            set { QuestionTxtBolck.Text = value; }
-        }
         public TestControl(Question Question)
         {
             InitializeComponent();
@@ -38,6 +34,17 @@ namespace QuizTakerApp
             // set the question text
             QuestionTxtBolck.Text = question.QuestionText;
 
+            AddRadioBtns();
+        }
+
+        public string QuestionText
+        {
+            get { return QuestionTxtBolck.Text; }
+            set { QuestionTxtBolck.Text = value; }
+        }
+
+        private void AddRadioBtns()
+        {
             // Check if the question is multiple choice or True/False
             // Check if the question is multiple choice or True/False          
             if (question.IsMultipleChoice)
@@ -48,11 +55,15 @@ namespace QuizTakerApp
                     RadioButton radioButton = new RadioButton();
                     radioButton.Content = answer.AnswerText;
                     radioButton.GroupName = "Answers";
+                    radioButton.Foreground = Brushes.White;
                     AnswersStackPanel.Children.Add(radioButton);
                 }
             }
             else if (question.IsTrueFalse)
             {
+                // Change up data base to store true false questions
+                // means i can loop through the answers and add them to the radio buttons
+
                 // Generate 2 radio buttons for True/False
                 RadioButton rb_True = new RadioButton();
                 RadioButton rb_False = new RadioButton();
@@ -62,6 +73,8 @@ namespace QuizTakerApp
                 // Set the group name of the radio buttons
                 rb_True.GroupName = "Answers";
                 rb_False.GroupName = "Answers";
+                rb_True.Foreground = Brushes.White; 
+                rb_False.Foreground = Brushes.White;
                 // Add the radio buttons to the stack panel
                 AnswersStackPanel.Children.Add(rb_True);
                 AnswersStackPanel.Children.Add(rb_False);

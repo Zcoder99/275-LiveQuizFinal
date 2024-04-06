@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:QuizTakerApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"         
         mc:Ignorable="d"
         Title="TestLiveQuiz" Height="450" Width="800">
-    <Grid>
+    
+    <Grid Background="#512da8">
         <!-- Use a Grid instead of StackPanel -->
         <Grid x:Name="QuestionsContainer">
             <!-- Define a single row that fills the available height -->
@@ -16,11 +16,14 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <materialDesign:Transitioner Grid.Row="0" x:Name="TransitionerControl"/>
+
+            <materialDesign:Transitioner Grid.Row="0" x:Name="TransitionerControl" Background="White">
+                <!---->
+            </materialDesign:Transitioner>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Content="Previous" Width="200" Margin="5" Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" Click="Button_Click" />
-                <Button Content="Next" Width="200" Margin="5" Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" Click="Button_Click_1" />
+                <Button Content="Previous" Width="200" Margin="5"  Click="Button_Click" Style="{StaticResource MaterialDesignRaisedLightButton}"/>
+                <Button Content="Next" Width="200"  Margin="5"  Click="Button_Click_1" Style="{StaticResource MaterialDesignRaisedLightButton}"/>
             </StackPanel>
         </Grid>
     </Grid>

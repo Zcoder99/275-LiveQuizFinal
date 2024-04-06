@@ -14,7 +14,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid>
+    <Grid Background="#512da8">
         <!-- Ensure that the Grid fills the whole area -->
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -32,16 +32,17 @@
             Grid.ColumnSpan="2"
             Width="auto"
             Padding="8"
-            Background="White"
+
+            Background="#512da8"
             Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
             <TextBlock x:Name="QuestionTxtBolck"
-                 TextAlignment="Center"    
+                 TextAlignment="Center"
+                 Foreground="White"
                  VerticalAlignment="Center"
                  FontSize="24"
                  Text="Question text here" 
             />
         </materialDesign:Card>
-
-        <StackPanel x:Name="AnswersStackPanel" Grid.ColumnSpan="2" Grid.Row="1" Background="LightBlue"></StackPanel>
+        <StackPanel x:Name="AnswersStackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" Background="#512da8"></StackPanel>
     </Grid>
 </UserControl>

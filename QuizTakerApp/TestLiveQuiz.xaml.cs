@@ -1,4 +1,5 @@
 ﻿using MaterialDesignThemes.Wpf.Transitions;
+using SqlServerLibrary;
 using SqlServerLibrary.QuizClasses;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace QuizTakerApp
     /// </summary>
     public partial class TestLiveQuiz : Window
     {
+        // Track the current test control index
+        private int currentIndex = 0;
         public Quiz SelectedQuiz { get; set; } // access to selected quiz
 
         public TestLiveQuiz(Quiz selectedQuiz)
@@ -29,27 +32,22 @@ namespace QuizTakerApp
             InitializeComponent();
             SelectedQuiz = selectedQuiz; // set the selected quiz
 
-            
-
-            
-
             foreach (var question in SelectedQuiz.Questions)
-            {
-               
-                
-
+            {                               
                 // create a new instance of the TestControl
                 TestControl questionControl = new TestControl(question);
-
-                // create a transitionerSilde for the control
-                var slide = new TransitionerSlide();
-                slide.Content = questionControl;
+                 
+                var slide = new TransitionerSlide() // create a new instance of the TransitionerSlide
+                {
+                    Content = questionControl, // set the content of the slide to the TestControl                  
+                };
                
                 // get the test of the current question
                 questionControl.QuestionText = question.QuestionText;
 
                 // add the testcontrol to the first row of the grid
                 Grid.SetRow(slide, 0);
+
                 // Add the transitionerSlide to the transitioner                
                 TransitionerControl.Items.Add(slide);
             }
@@ -60,26 +58,31 @@ namespace QuizTakerApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Get the current slide
-            var currentSlide = TransitionerControl.SelectedItem;
-            // Get the index of the current slide
-            var currentIndex = TransitionerControl.Items.IndexOf(currentSlide);
-            // Get the previos slide
-            var previousSlide = TransitionerControl.Items[currentIndex - 1];
-            // Set the previous slide as the selected slide
-            TransitionerControl.SelectedItem = previousSlide;
+            // Check for previos TestControl instances
+            if (currentIndex > 0)
+            {
+                TransitionerControl.SelectedIndex = --currentIndex;
+            }
+            else
+            {
+                // Display a message box to the user
+                System.Windows.MessageBox.Show("you are at the start of the quiz");
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            // Get the current slide
-            var currentSlide = TransitionerControl.SelectedItem;
-            // Get the index of the current slide
-            var currentIndex = TransitionerControl.Items.IndexOf(currentSlide);
-            // Get the next slide
-            var nextSlide = TransitionerControl.Items[currentIndex + 1];
-            // Set the next slide as the selected slide
-            TransitionerControl.SelectedItem = nextSlide;
+            // Check if there are more TestControl instances available
+            if (currentIndex < SelectedQuiz.Questions.Count - 1)
+            {
+                TransitionerControl.SelectedIndex = ++currentIndex;
+            }
+            else
+            {
+                // Display a message box to the user
+                System.Windows.MessageBox.Show("You have reached the end of the quiz");
+            }
+
 
         }
     }
