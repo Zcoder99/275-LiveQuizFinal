@@ -44,6 +44,7 @@ namespace LiveQuizFinal
 
                 // Open QuestionsWindow and pass the quiz object
                 QuestionsWindow questionsWindow = new QuestionsWindow(quiz);
+                questionsWindow.Owner = this;
                 questionsWindow.Show();
             }
 

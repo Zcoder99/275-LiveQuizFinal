@@ -58,16 +58,17 @@ namespace LiveQuizFinal
                 MessageBox.Show("Question added to the quiz");
                 // Clear the text box
                 txt_Question.Text = "";
-                // if True or False is selected dont open the answer window
+                // if True or False is Open the AnswersWindow
                 if (isTrueFalse)
                 {
-                    // provide feedback to the user that t or f questions do not require answers
-                    MessageBox.Show("True or False questions do not require answers");
-                    return;
+                    AnswersWindow answersWindow = new AnswersWindow(questionId); // Create a new instance of the AnswersWindow class
+                    answersWindow.Owner = this; // Set the owner of the AnswersWindow to this window
+                    answersWindow.Show();
                 }
                 else if (isMultipleChoice)
                 {
                     AnswersWindow answersWindow = new AnswersWindow(questionId); // Create a new instance of the AnswersWindow class
+                    answersWindow.Owner = this; // Set the owner of the AnswersWindow to this window
                     answersWindow.Show();
                 }
             }

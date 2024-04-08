@@ -17,8 +17,11 @@
      FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox x:Name="txtAnswer" Width="300" Height="50" TextWrapping="Wrap" AcceptsReturn="True"/>
-            <Button Content="Save Answer" Width="150" Margin="10" Click="Button_Click"/>
+            <TextBox x:Name="txtAnswer" Width="300" Margin="5" Height="50" TextWrapping="Wrap" AcceptsReturn="True"/>
+
+            <CheckBox x:Name="cb_corectAnswer" Margin="10" Content="Is this the correct answer?" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignCheckBox}"/>
+
+            <Button Content="Save Answer" Width="150"  Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SqlServerLibrary;
+using SqlServerLibrary.Context;
 
 namespace LiveQuizFinal
 {
@@ -37,13 +38,20 @@ namespace LiveQuizFinal
                 return;
             }
 
-            string answerText = txtAnswer.Text; // Get the answer text
+            string answerText = txtAnswer.Text; // Get the answer text                     
 
-            Answer.SaveToAnswersList(answerText, questionId); // Save the answer to the database
+            // Check for existing correct answers for true/false questions
+            if(Answer.CheckExistingCorrectAnswers(questionId, cb_corectAnswer.IsChecked == true))
+            {
+                return; // Exit the method without saving the answer
+            }
+
+
+            Answer.SaveToAnswersList(answerText, questionId, cb_corectAnswer.IsChecked == true); // Save the answer to the database
 
             MessageBox.Show("Answer added to the question"); // Provide feedback to the user
 
             txtAnswer.Text = ""; // Clear the text box
-        }
+        }        
     }
 }

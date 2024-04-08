@@ -44,6 +44,9 @@ namespace QuizTakerApp
         {
             Quiz quiz = (Quiz)lstQuizList.SelectedItem;
             TestLiveQuiz testLiveQuiz = new TestLiveQuiz(quiz);
+
+            testLiveQuiz.Owner = this; // set the owner of the window to this window
+
             testLiveQuiz.Show();
         }
 
