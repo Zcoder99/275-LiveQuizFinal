@@ -17,7 +17,7 @@
         >
 
     <!-- the transitioner will manage your transitions. notice how SelectedIndex is set to zero: the first slide (instead of the default of -1) -->
-    <Grid>
+    <Grid Background="#512da8">
         <Grid.RowDefinitions>
             <RowDefinition Height="6" />
             <RowDefinition Height="*" />

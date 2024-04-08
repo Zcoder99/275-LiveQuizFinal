@@ -16,7 +16,6 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-
             <materialDesign:Transitioner Grid.Row="0" x:Name="TransitionerControl" Background="White">
                 <!---->
             </materialDesign:Transitioner>
