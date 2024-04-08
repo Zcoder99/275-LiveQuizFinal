@@ -16,6 +16,7 @@ using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Transitions;
 using SqlServerLibrary;
 using SqlServerLibrary.Context;
+using SqlServerLibrary.QuizClasses;
 
 namespace QuizTakerApp
 {
@@ -26,7 +27,8 @@ namespace QuizTakerApp
     {
         private Question question;
 
-        public int QuestionId { get; set; }
+        
+        //public int QuestionId { get; set; }
         public TestControl(Question Question)
         {
             InitializeComponent();
@@ -43,10 +45,11 @@ namespace QuizTakerApp
             set { QuestionTxtBolck.Text = value; }
         }
 
+        public static int CorrectAnswerCount { get; internal set; }
+
         private void AddRadioBtns()
         {
-            // Check if the question is multiple choice or True/False
-            // Check if the question is multiple choice or True/False          
+            // Check if the question is multiple choice or True/False  
             if (question.IsMultipleChoice)
             {
                 // loop through the answers and add them to the radio buttons
@@ -56,14 +59,12 @@ namespace QuizTakerApp
                     radioButton.Content = answer.AnswerText;
                     radioButton.GroupName = "Answers";
                     radioButton.Foreground = Brushes.White;
+                    radioButton.Click += RB_answerCorrect_Event;
                     AnswersStackPanel.Children.Add(radioButton);
                 }
             }
             else if (question.IsTrueFalse)
             {
-                // Change up data base to store true false questions
-                // means i can loop through the answers and add them to the radio buttons
-
                 // Generate 2 radio buttons for True/False
                 RadioButton rb_True = new RadioButton();
                 RadioButton rb_False = new RadioButton();
@@ -73,12 +74,90 @@ namespace QuizTakerApp
                 // Set the group name of the radio buttons
                 rb_True.GroupName = "Answers";
                 rb_False.GroupName = "Answers";
-                rb_True.Foreground = Brushes.White; 
+                rb_True.Foreground = Brushes.White;
                 rb_False.Foreground = Brushes.White;
+                // Add event handlers to the radio buttons
+                rb_False.Click += Rb_False_Click;
+                rb_True.Click += Rb_True_Click;
                 // Add the radio buttons to the stack panel
                 AnswersStackPanel.Children.Add(rb_True);
                 AnswersStackPanel.Children.Add(rb_False);
             }
+        }
+
+        private void Rb_True_Click(object sender, RoutedEventArgs e)
+        {
+            // check if the selected answer is a correct answer
+            RadioButton radioButton = (RadioButton)sender;
+            string selectedAnswerText = radioButton.Content.ToString();
+
+            // Find the selected answer in the list of answers for the current question
+            Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
+            if (selectedAnswer != null)
+            {
+                bool isCorrect = selectedAnswer.CorrectAnswer;
+
+                // If the answer is correct, notify the parent window
+                if (isCorrect)
+                {
+                    AnswerCorrect?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            else if (selectedAnswer == null)
+            {
+                MessageBox.Show("Please select an answer");
+            }
+        }
+
+        private void Rb_False_Click(object sender, RoutedEventArgs e)
+        {
+            // check if the selected answer is a correct answer
+            // check if the selected answer is a correct answer
+            RadioButton radioButton = (RadioButton)sender;
+            string selectedAnswerText = radioButton.Content.ToString();
+
+            // Find the selected answer in the list of answers for the current question
+            Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
+            if (selectedAnswer != null)
+            {
+                bool isCorrect = selectedAnswer.CorrectAnswer;
+
+                // If the answer is correct, notify the parent window
+                if (isCorrect)
+                {
+                    AnswerCorrect?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            else if (selectedAnswer == null)
+            {
+                MessageBox.Show("Please select an answer");
+            }
+        }
+
+        public event EventHandler AnswerCorrect;
+        private void RB_answerCorrect_Event(object sender, RoutedEventArgs e)
+        {
+            // Check if the selected answer is correct
+            RadioButton radioButton = (RadioButton)sender;
+            string selectedAnswerText = radioButton.Content.ToString();
+
+            // Find the selected answer in the list of answers for the current question
+            Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
+            if (selectedAnswer != null)
+            {
+                bool isCorrect = selectedAnswer.CorrectAnswer;
+
+                // If the answer is correct, notify the parent window
+                if (isCorrect)
+                {
+                    AnswerCorrect?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            else if (selectedAnswer == null)
+            {
+                MessageBox.Show("Please select an answer");
+            }
+
         }
     }
 }

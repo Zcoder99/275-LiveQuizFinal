@@ -27,11 +27,14 @@ namespace QuizTakerApp
         private int currentIndex = 0;
         public Quiz SelectedQuiz { get; set; } // access to selected quiz
 
+        private int correctAnswerCount = 0; // track the number of correct answers
+
         public TestLiveQuiz(Quiz selectedQuiz)
         {
             InitializeComponent();
             SelectedQuiz = selectedQuiz; // set the selected quiz
 
+            // loop through the questions in the selected quiz
             foreach (var question in SelectedQuiz.Questions)
             {                               
                 // create a new instance of the TestControl
@@ -45,19 +48,45 @@ namespace QuizTakerApp
                 // get the test of the current question
                 questionControl.QuestionText = question.QuestionText;
 
+                // Subscribe to the AnswerCorrect event
+                questionControl.AnswerCorrect += QuestionControl_AnswerCorrect;
+
                 // add the testcontrol to the first row of the grid
                 Grid.SetRow(slide, 0);
 
                 // Add the transitionerSlide to the transitioner                
                 TransitionerControl.Items.Add(slide);
             }
-           // Display the first question
-            TransitionerControl.SelectedIndex = 0;
+
+            // new insctance of the QuizScoreControle
+            QuizScoreControle quizScoreControle = new QuizScoreControle();
+
+            // Add the QuizScoreControle to the First row of the grid
+            Grid.SetRow(quizScoreControle, 0);
+
+            var ScoreSlide = new TransitionerSlide()
+            {
+                Content = quizScoreControle
+            };
             
+            // add the score slide to always be the last slide
+            TransitionerControl.Items.Add(ScoreSlide);
+
+            // display the score slide last
+            TransitionerControl.SelectedIndex = TransitionerControl.Items.Count - 1;
+
+            // Display the first question
+            TransitionerControl.SelectedIndex = 0;            
+        }
+        // Event handler for the AnswerCorrect event
+        private void QuestionControl_AnswerCorrect(object? sender, EventArgs e)
+        {
+            // Increment the correct answer count
+            QuizScoreControle.Score++;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        {                        
             // Check for previos TestControl instances
             if (currentIndex > 0)
             {
@@ -80,7 +109,7 @@ namespace QuizTakerApp
             else
             {
                 // Display a message box to the user
-                System.Windows.MessageBox.Show("You have reached the end of the quiz");
+                TransitionerControl.SelectedIndex = TransitionerControl.Items.Count - 1;
             }
 
 
