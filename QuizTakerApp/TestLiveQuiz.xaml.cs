@@ -27,7 +27,7 @@ namespace QuizTakerApp
         private int currentIndex = 0;
         public Quiz SelectedQuiz { get; set; } // access to selected quiz
 
-        private int correctAnswerCount = 0; // track the number of correct answers
+        private int totalCorrectAnswers = 0; // track the number of correct answers
 
         public TestLiveQuiz(Quiz selectedQuiz)
         {
@@ -50,7 +50,7 @@ namespace QuizTakerApp
 
                 // Subscribe to the AnswerCorrect event
                 questionControl.AnswerCorrect += QuestionControl_AnswerCorrect;
-
+                questionControl.CorrectAnswerCountChanged += (sender, count) => UpdateScore(count);
                 // add the testcontrol to the first row of the grid
                 Grid.SetRow(slide, 0);
 
@@ -78,11 +78,20 @@ namespace QuizTakerApp
             // Display the first question
             TransitionerControl.SelectedIndex = 0;            
         }
+
+        private void UpdateScore(int count)
+        {
+            totalCorrectAnswers = count;
+            // Update the score in the QuizScoreControle
+            QuizScoreControle.Score = totalCorrectAnswers;
+        }
+
         // Event handler for the AnswerCorrect event
         private void QuestionControl_AnswerCorrect(object? sender, EventArgs e)
         {
             // Increment the correct answer count
             QuizScoreControle.Score++;
+            UpdateScore(totalCorrectAnswers);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

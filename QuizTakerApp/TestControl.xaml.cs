@@ -25,9 +25,10 @@ namespace QuizTakerApp
     /// </summary>
     public partial class TestControl : UserControl
     {
+        public event EventHandler<int> CorrectAnswerCountChanged; // Event to notify count change
+        private int correctAnswerCount; // Track count of correct answers
+        public event EventHandler AnswerCorrect;
         private Question question;
-
-        
         //public int QuestionId { get; set; }
         public TestControl(Question Question)
         {
@@ -45,7 +46,7 @@ namespace QuizTakerApp
             set { QuestionTxtBolck.Text = value; }
         }
 
-        public static int CorrectAnswerCount { get; internal set; }
+        public int CorrectAnswerCount { get; internal set; }
 
         private void AddRadioBtns()
         {
@@ -87,77 +88,39 @@ namespace QuizTakerApp
 
         private void Rb_True_Click(object sender, RoutedEventArgs e)
         {
-            // check if the selected answer is a correct answer
             RadioButton radioButton = (RadioButton)sender;
             string selectedAnswerText = radioButton.Content.ToString();
-
-            // Find the selected answer in the list of answers for the current question
             Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
-            if (selectedAnswer != null)
+            if (selectedAnswer != null && selectedAnswer.CorrectAnswer)
             {
-                bool isCorrect = selectedAnswer.CorrectAnswer;
-
-                // If the answer is correct, notify the parent window
-                if (isCorrect)
-                {
-                    AnswerCorrect?.Invoke(this, EventArgs.Empty);
-                }
-            }
-            else if (selectedAnswer == null)
-            {
-                MessageBox.Show("Please select an answer");
+                CorrectAnswerCount++;
+                CorrectAnswerCountChanged?.Invoke(this, correctAnswerCount); // Notify count change
             }
         }
 
         private void Rb_False_Click(object sender, RoutedEventArgs e)
         {
-            // check if the selected answer is a correct answer
-            // check if the selected answer is a correct answer
             RadioButton radioButton = (RadioButton)sender;
             string selectedAnswerText = radioButton.Content.ToString();
-
-            // Find the selected answer in the list of answers for the current question
             Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
-            if (selectedAnswer != null)
+            if (selectedAnswer != null && selectedAnswer.CorrectAnswer)
             {
-                bool isCorrect = selectedAnswer.CorrectAnswer;
-
-                // If the answer is correct, notify the parent window
-                if (isCorrect)
-                {
-                    AnswerCorrect?.Invoke(this, EventArgs.Empty);
-                }
-            }
-            else if (selectedAnswer == null)
-            {
-                MessageBox.Show("Please select an answer");
+                CorrectAnswerCount++;
+                CorrectAnswerCountChanged?.Invoke(this, correctAnswerCount); // Notify count change
             }
         }
 
-        public event EventHandler AnswerCorrect;
+        
         private void RB_answerCorrect_Event(object sender, RoutedEventArgs e)
         {
-            // Check if the selected answer is correct
             RadioButton radioButton = (RadioButton)sender;
             string selectedAnswerText = radioButton.Content.ToString();
-
-            // Find the selected answer in the list of answers for the current question
             Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
-            if (selectedAnswer != null)
+            if (selectedAnswer != null && selectedAnswer.CorrectAnswer)
             {
-                bool isCorrect = selectedAnswer.CorrectAnswer;
-
-                // If the answer is correct, notify the parent window
-                if (isCorrect)
-                {
-                    AnswerCorrect?.Invoke(this, EventArgs.Empty);
-                }
+                CorrectAnswerCount++;
+                CorrectAnswerCountChanged?.Invoke(this, correctAnswerCount); // Notify count change
             }
-            else if (selectedAnswer == null)
-            {
-                MessageBox.Show("Please select an answer");
-            }
-
         }
     }
 }

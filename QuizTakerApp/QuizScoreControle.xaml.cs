@@ -24,9 +24,13 @@ namespace QuizTakerApp
         public QuizScoreControle()
         {
             InitializeComponent();
-            Score = TestControl.CorrectAnswerCount;
-            ScoreTxtBlock.Text = $"You scored {Score} out of ";
+            Score = 0;
+            UpdateScoreDisplay();
         }
-
+        
+        public void UpdateScoreDisplay()
+        {
+            ScoreTxtBlock.Text = $"You scored {Score} out of "; // Update the score text
+        }
     }
 }
