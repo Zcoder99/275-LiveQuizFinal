@@ -44,9 +44,7 @@ namespace QuizTakerApp
         {
             get { return QuestionTxtBolck.Text; }
             set { QuestionTxtBolck.Text = value; }
-        }
-
-        public int CorrectAnswerCount { get; private set; }
+        }       
 
         private void AddRadioBtns()
         {
@@ -103,7 +101,10 @@ namespace QuizTakerApp
             RadioButton radioButton = (RadioButton)sender;
             string selectedAnswerText = radioButton.Content.ToString();
             Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
-            
+            if (selectedAnswer.CorrectAnswer)
+            {
+                TestLiveQuiz.totalCorrectAnswers++;
+            }
         }
 
         
@@ -112,7 +113,10 @@ namespace QuizTakerApp
             RadioButton radioButton = (RadioButton)sender;
             string selectedAnswerText = radioButton.Content.ToString();
             Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
-            
+            if (selectedAnswer.CorrectAnswer)
+            {
+                TestLiveQuiz.totalCorrectAnswers++;
+            }
         }
     }
 }
