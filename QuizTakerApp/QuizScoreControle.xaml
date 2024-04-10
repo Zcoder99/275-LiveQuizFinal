@@ -21,9 +21,7 @@
         <StackPanel Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center">
             <TextBlock  Text="Your Score" FontSize="30" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock x:Name="ScoreTxtBlock"  Text="{Binding TestLiveQuiz.totalCorrectAnswers}" FontSize="30" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-           
-        <Button x:Name="tst"  VerticalAlignment="Bottom" Margin="5" Width="200" Click="tst_Click" Style="{StaticResource MaterialDesignRaisedDarkButton}" >Reveal your score</Button>
-           
+            <Button x:Name="tst"  VerticalAlignment="Bottom" Margin="5" Width="200" Click="tst_Click" Style="{StaticResource MaterialDesignRaisedDarkButton}" >Reveal your score</Button>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -50,7 +50,6 @@ namespace QuizTakerApp
                
                 // get the test of the current question
                 questionControl.QuestionText = question.QuestionText;
-
                 
                 // add the testcontrol to the first row of the grid
                 Grid.SetRow(slide, 0);
@@ -60,9 +59,7 @@ namespace QuizTakerApp
             }
 
             // new insctance of the QuizScoreControle
-            QuizScoreControle quizScoreControle = new QuizScoreControle();
-
-          
+            QuizScoreControle quizScoreControle = new QuizScoreControle();          
 
             // Add the QuizScoreControle to the First row of the grid
             Grid.SetRow(quizScoreControle, 0);
@@ -80,11 +77,7 @@ namespace QuizTakerApp
 
             // Display the first question
             TransitionerControl.SelectedIndex = 0;            
-        }
-
-       
-        // Event handler for the AnswerCorrect event
-        
+        }       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {                        
@@ -97,8 +90,7 @@ namespace QuizTakerApp
             {
                 // Display a message box to the user
                 System.Windows.MessageBox.Show("you are at the start of the quiz");
-            }
-           
+            }           
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
