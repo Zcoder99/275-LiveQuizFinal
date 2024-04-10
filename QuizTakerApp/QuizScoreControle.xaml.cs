@@ -20,17 +20,18 @@ namespace QuizTakerApp
     /// </summary>
     public partial class QuizScoreControle : UserControl
     {
-        public static int Score { get; set; }
+        public static int Score { get; set; }        
         public QuizScoreControle()
         {
             InitializeComponent();
-            Score = 0;
-            UpdateScoreDisplay();
+            Score = 0;        
         }
         
-        public void UpdateScoreDisplay()
+        public void UpdateScoreDisplay(TestLiveQuiz liveQuiz)
         {
-            ScoreTxtBlock.Text = $"You scored {Score} out of "; // Update the score text
+            //Count the number of questions in the quiz
+            int totalQuestions = liveQuiz.SelectedQuiz.Questions.Count;
+            ScoreTxtBlock.Text = $"You scored {Score} out of {totalQuestions}"; // Update the score text
         }
     }
 }

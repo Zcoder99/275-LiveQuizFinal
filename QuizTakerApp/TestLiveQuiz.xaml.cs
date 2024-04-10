@@ -61,6 +61,8 @@ namespace QuizTakerApp
             // new insctance of the QuizScoreControle
             QuizScoreControle quizScoreControle = new QuizScoreControle();
 
+            quizScoreControle.UpdateScoreDisplay(this);
+
             // Add the QuizScoreControle to the First row of the grid
             Grid.SetRow(quizScoreControle, 0);
 
@@ -82,8 +84,12 @@ namespace QuizTakerApp
         private void UpdateScore(int count)
         {
             totalCorrectAnswers = count;
+
+
             // Update the score in the QuizScoreControle
             QuizScoreControle.Score = totalCorrectAnswers;
+
+           
         }
 
         // Event handler for the AnswerCorrect event
