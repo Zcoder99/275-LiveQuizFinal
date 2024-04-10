@@ -29,9 +29,7 @@ namespace QuizTakerApp
         public Quiz SelectedQuiz { get; set; } // access to selected quiz
 
         public static int totalCorrectAnswers = 0; // track the number of correct answers
-
        
-
         public TestLiveQuiz(Quiz selectedQuiz)
         {
             InitializeComponent();
