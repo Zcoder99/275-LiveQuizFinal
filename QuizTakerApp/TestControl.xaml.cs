@@ -25,8 +25,8 @@ namespace QuizTakerApp
     /// </summary>
     public partial class TestControl : UserControl
     {
-        public event EventHandler<int> CorrectAnswerCountChanged; // Event to notify count change
-        private int correctAnswerCount; // Track count of correct answers
+       
+        //private int correctAnswerCount; // Track count of correct answers
         public event EventHandler AnswerCorrect;
         private Question question;
         //public int QuestionId { get; set; }
@@ -46,7 +46,7 @@ namespace QuizTakerApp
             set { QuestionTxtBolck.Text = value; }
         }
 
-        public int CorrectAnswerCount { get; internal set; }
+        public int CorrectAnswerCount { get; private set; }
 
         private void AddRadioBtns()
         {
@@ -91,11 +91,11 @@ namespace QuizTakerApp
             RadioButton radioButton = (RadioButton)sender;
             string selectedAnswerText = radioButton.Content.ToString();
             Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
-            if (selectedAnswer != null && selectedAnswer.CorrectAnswer)
+            if(selectedAnswer.CorrectAnswer)
             {
-                CorrectAnswerCount++;
-                CorrectAnswerCountChanged?.Invoke(this, correctAnswerCount); // Notify count change
+               TestLiveQuiz.totalCorrectAnswers++;
             }
+            
         }
 
         private void Rb_False_Click(object sender, RoutedEventArgs e)
@@ -103,11 +103,7 @@ namespace QuizTakerApp
             RadioButton radioButton = (RadioButton)sender;
             string selectedAnswerText = radioButton.Content.ToString();
             Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
-            if (selectedAnswer != null && selectedAnswer.CorrectAnswer)
-            {
-                CorrectAnswerCount++;
-                CorrectAnswerCountChanged?.Invoke(this, correctAnswerCount); // Notify count change
-            }
+            
         }
 
         
@@ -116,11 +112,7 @@ namespace QuizTakerApp
             RadioButton radioButton = (RadioButton)sender;
             string selectedAnswerText = radioButton.Content.ToString();
             Answer selectedAnswer = question.Answers.FirstOrDefault(a => a.AnswerText == selectedAnswerText);
-            if (selectedAnswer != null && selectedAnswer.CorrectAnswer)
-            {
-                CorrectAnswerCount++;
-                CorrectAnswerCountChanged?.Invoke(this, correctAnswerCount); // Notify count change
-            }
+            
         }
     }
 }

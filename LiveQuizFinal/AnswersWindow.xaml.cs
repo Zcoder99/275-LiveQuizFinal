@@ -32,13 +32,15 @@ namespace LiveQuizFinal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (txtAnswer.Text == "") // Check if the answer text is empty
+            
+            string answerText = txtAnswer.Text.Trim(); // Get the answer text                     
+
+            if (string.IsNullOrWhiteSpace(answerText)) // Check if the answer text is empty
             {
-                MessageBox.Show("Please enter a question");
+                MessageBox.Show("Please enter a answer for your quesiton");
                 return;
             }
 
-            string answerText = txtAnswer.Text; // Get the answer text                     
 
             // Check for existing correct answers for true/false questions
             if(Answer.CheckExistingCorrectAnswers(questionId, cb_corectAnswer.IsChecked == true))

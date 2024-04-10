@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace QuizTakerApp
 {
@@ -27,7 +28,9 @@ namespace QuizTakerApp
         private int currentIndex = 0;
         public Quiz SelectedQuiz { get; set; } // access to selected quiz
 
-        private int totalCorrectAnswers = 0; // track the number of correct answers
+        public static int totalCorrectAnswers = 0; // track the number of correct answers
+
+       
 
         public TestLiveQuiz(Quiz selectedQuiz)
         {
@@ -48,9 +51,7 @@ namespace QuizTakerApp
                 // get the test of the current question
                 questionControl.QuestionText = question.QuestionText;
 
-                // Subscribe to the AnswerCorrect event
-                questionControl.AnswerCorrect += QuestionControl_AnswerCorrect;
-                questionControl.CorrectAnswerCountChanged += (sender, count) => UpdateScore(count);
+                
                 // add the testcontrol to the first row of the grid
                 Grid.SetRow(slide, 0);
 
@@ -61,7 +62,7 @@ namespace QuizTakerApp
             // new insctance of the QuizScoreControle
             QuizScoreControle quizScoreControle = new QuizScoreControle();
 
-            quizScoreControle.UpdateScoreDisplay(this);
+          
 
             // Add the QuizScoreControle to the First row of the grid
             Grid.SetRow(quizScoreControle, 0);
@@ -81,24 +82,9 @@ namespace QuizTakerApp
             TransitionerControl.SelectedIndex = 0;            
         }
 
-        private void UpdateScore(int count)
-        {
-            totalCorrectAnswers = count;
-
-
-            // Update the score in the QuizScoreControle
-            QuizScoreControle.Score = totalCorrectAnswers;
-
-           
-        }
-
+       
         // Event handler for the AnswerCorrect event
-        private void QuestionControl_AnswerCorrect(object? sender, EventArgs e)
-        {
-            // Increment the correct answer count
-            QuizScoreControle.Score++;
-            UpdateScore(totalCorrectAnswers);
-        }
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {                        
@@ -112,6 +98,7 @@ namespace QuizTakerApp
                 // Display a message box to the user
                 System.Windows.MessageBox.Show("you are at the start of the quiz");
             }
+           
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -126,8 +113,6 @@ namespace QuizTakerApp
                 // Display a message box to the user
                 TransitionerControl.SelectedIndex = TransitionerControl.Items.Count - 1;
             }
-
-
         }
     }
 }
