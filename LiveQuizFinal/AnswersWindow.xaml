@@ -15,13 +15,16 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox x:Name="txtAnswer" Width="300" Margin="5" Height="50" TextWrapping="Wrap" AcceptsReturn="True"/>
+    <Grid Background="#512da8">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!-- Content StackPanel -->
+            <StackPanel>
+                <TextBox x:Name="txtAnswer" materialDesign:HintAssist.Hint="Enter Answer" Foreground="White"  TextWrapping="Wrap" AcceptsReturn="True"/>
 
-            <CheckBox x:Name="cb_corectAnswer" Margin="10" Content="Is this the correct answer?" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignCheckBox}"/>
+                <CheckBox Foreground="White"  x:Name="cb_corectAnswer" Margin="10" Content="Is this the correct answer?" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignCheckBox}"/>
 
-            <Button Content="Save Answer" Width="150"  Click="Button_Click"/>
-        </StackPanel>
+                <Button Content="Save Answer" Background="Black" Width="150"  Click="Button_Click"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

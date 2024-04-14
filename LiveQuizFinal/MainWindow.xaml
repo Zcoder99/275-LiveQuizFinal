@@ -15,24 +15,33 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid Background="White">
-        <StackPanel Margin="20" VerticalAlignment="Top" Width="200">
-            <Label Content="QUIZZLER" Width="81" ></Label>
+    <Grid Background="#512da8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Centered StackPanel -->
+        <StackPanel Grid.Column="0" Grid.Row="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <StackPanel Margin="20" VerticalAlignment="Top" Width="200">
+                <Label Content="QUIZZLER" Width="81" Foreground="White" ></Label>
+            </StackPanel>
+
+            <StackPanel Margin="10,0,30,181" VerticalAlignment="Bottom" Width="200">
+                <TextBox x:Name="txt_QuizName" Foreground="White"
+                        MaxWidth="400"
+                        materialDesign:HintAssist.Hint="Quiz Name"
+                        AcceptsReturn="True"
+                        IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
+                        TextWrapping="NoWrap" Width="215" />
+                <Button Width="150" Content="Create Quiz" Margin="10" Background="Black"
+                        IsEnabled="{Binding DataContext.ControleIsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"  
+                        ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="Button_Click" />
+            </StackPanel>
         </StackPanel>
-
-        <StackPanel Margin="10,0,30,181" VerticalAlignment="Bottom" Width="200">
-            <TextBox x:Name="txt_QuizName" 
-                MaxWidth="400"
-                materialDesign:HintAssist.Hint="Quiz Name"
-                AcceptsReturn="True"
-                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
-   
-                TextWrapping="NoWrap" Width="215" />
-            <Button Width="150" Content="Create Quiz" Margin="10"
-                IsEnabled="{Binding DataContext.ControleIsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"  
-                ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="Button_Click" />
-        </StackPanel>
-
-
     </Grid>
 </Window>

@@ -15,15 +15,22 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid>
-        <StackPanel x:Name="Container" HorizontalAlignment="Left" Width="336" Margin="10">
-            <StackPanel>
-                <Label x:Name="lblQest1Win_prompt" Content="Add quiz questions here:" FontSize="16"></Label>
-            </StackPanel>
-        </StackPanel>
+    <Grid Background="#512da8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <!-- Adjusted RowDefinition to Auto -->
+        </Grid.RowDefinitions>
+
+        <!-- Content Grid -->
         
+
         <!--if i have time move addquestion funconality to the dialog box-->
-        <StackPanel Margin="351,10,10,10" VerticalAlignment="Bottom">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom">
             <materialDesign:DialogHost x:Name ="diolog_ListQuestions" DialogMargin="8"
                     Style="{StaticResource MaterialDesignEmbeddedDialogHost}">
                 <materialDesign:DialogHost.DialogContent>
@@ -68,13 +75,12 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <ListBox x:Name="lst_Questions">
-
-
-
-                        </ListBox>
-                        <materialDesign:ColorZone Grid.Row="1" Effect="{DynamicResource MaterialDesignShadowDepth5}" Mode="PrimaryMid">
-                            <TextBlock Margin="16" Text="Quiz questions" />
+                        <ListBox x:Name="lst_Questions" Foreground="White"></ListBox>
+                        <materialDesign:ColorZone Grid.Row="1" Grid.ColumnSpan="2" 
+                                                  Effect="{DynamicResource MaterialDesignShadowDepth5}" 
+                                                  Mode="PrimaryMid"
+                                                  Background="Black">
+                            <TextBlock Margin="16" Text="Add Some Questions To Your Quiz" />
                         </materialDesign:ColorZone>
                         <Button x:Name="btn_TestAddQuestion"
         Grid.Row="0"
