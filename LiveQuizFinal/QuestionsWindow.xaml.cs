@@ -30,9 +30,8 @@ namespace LiveQuizFinal
 
         private void btn_AddQuestion_Click(object sender, RoutedEventArgs e)
         {
-            if (txt_Question.Text == "") // Check if the question text is empty
+            if(!ValidateQuestion())
             {
-                MessageBox.Show("Please enter a question");
                 return;
             }
 
@@ -43,13 +42,14 @@ namespace LiveQuizFinal
                 return;
             }
 
+            // Set question properties based on radio button selection
+            string questionText = txt_Question.Text;
+
             // Determine question type based on radio button selection
             bool isTrueFalse = Rdo_Btn_TorF.IsChecked == true;
             bool isMultipleChoice = Rdo_Btn_MultiChoice.IsChecked == true;
 
-            // Set question properties based on radio button selection
-            string questionText = txt_Question.Text;
-
+            // Save the question to the database
             int questionId = Question.SaveToQuestionsList(questionText, quiz.Id, isTrueFalse, isMultipleChoice);
 
             if (questionId != -1) // Check if the question was added to the database
@@ -59,18 +59,7 @@ namespace LiveQuizFinal
                 // Clear the text box
                 txt_Question.Text = "";
                 // if True or False is Open the AnswersWindow
-                if (isTrueFalse)
-                {
-                    AnswersWindow answersWindow = new AnswersWindow(questionId); // Create a new instance of the AnswersWindow class
-                    answersWindow.Owner = this; // Set the owner of the AnswersWindow to this window
-                    answersWindow.Show();
-                }
-                else if (isMultipleChoice)
-                {
-                    AnswersWindow answersWindow = new AnswersWindow(questionId); // Create a new instance of the AnswersWindow class
-                    answersWindow.Owner = this; // Set the owner of the AnswersWindow to this window
-                    answersWindow.Show();
-                }
+               OpenAnswersWindow(questionId);
             }
             else
             {
@@ -78,7 +67,29 @@ namespace LiveQuizFinal
             }
         }
 
-        
+        private bool ValidateQuestion()
+        {
+            if (string.IsNullOrWhiteSpace(txt_Question.Text))
+            {
+                MessageBox.Show("Please enter a question");
+                return false;
+            }
+
+            if (Rdo_Btn_TorF.IsChecked == false && Rdo_Btn_MultiChoice.IsChecked == false)
+            {
+                MessageBox.Show("Please select a question type");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void OpenAnswersWindow(int questionId)
+        {
+            AnswersWindow answersWindow = new AnswersWindow(questionId);
+            answersWindow.Owner = this;
+            answersWindow.Show();
+        }
     }
 }
 
