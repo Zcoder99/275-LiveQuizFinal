@@ -24,6 +24,8 @@ namespace QuizTakerApp
     {
         public List<Quiz> Quizzes { get; set; }
         QuiznessLayer quiznessLayer = new QuiznessLayer();
+
+
         public MainWindow()
         {
             InitializeComponent();

@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 namespace SqlServerLibrary.UserClasses
 {
     public class User
-    {
-        
+    {        
         public int UserId { get; set; }// get and set the user id
         public string UserName { get; set; }// get and set the username
         public string Password { get; set; }// get and set the password

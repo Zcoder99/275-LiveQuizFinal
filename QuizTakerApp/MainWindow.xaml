@@ -1,10 +1,10 @@
-﻿<Window
+﻿<Window x:Class="QuizTakerApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:QuizTakerApp" x:Class="QuizTakerApp.MainWindow"
+        xmlns:local="clr-namespace:QuizTakerApp" 
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -13,11 +13,12 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="White"
-        FontFamily="{DynamicResource MaterialDesignFont}"        
-        >
-
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    
     <!-- the transitioner will manage your transitions. notice how SelectedIndex is set to zero: the first slide (instead of the default of -1) -->
+        
     <Grid Background="#512da8">
+       
         <Grid.RowDefinitions>
             <RowDefinition Height="6" />
             <RowDefinition Height="*" />
@@ -26,7 +27,7 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="6*" />
         </Grid.ColumnDefinitions>
-
+        
         <GroupBox
             Margin="10"
             Grid.ColumnSpan="2"
@@ -38,11 +39,8 @@
             materialDesign:ColorZoneAssist.Mode="Custom"
             Header="Select a quiz"
             Style="{StaticResource MaterialDesignGroupBox}">
-
-
-
-            <ListBox x:Name="lstQuizList" IsEnabled="{Binding IsChecked, ElementName=EnableListBox}" Grid.RowSpan="2"
-                     
+            
+            <ListBox x:Name="lstQuizList" IsEnabled="{Binding IsChecked, ElementName=EnableListBox}" Grid.RowSpan="2"                     
                      DisplayMemberPath="QuizName" SelectionChanged="lstQuizList_SelectionChanged"
                      >
                 <ListBox.ItemContainerStyle>
@@ -54,5 +52,6 @@
                 </ListBox.ItemContainerStyle>
             </ListBox>
         </GroupBox>
+    
     </Grid>
 </Window>
