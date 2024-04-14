@@ -19,28 +19,6 @@
         <StackPanel x:Name="Container" HorizontalAlignment="Left" Width="336" Margin="10">
             <StackPanel>
                 <Label x:Name="lblQest1Win_prompt" Content="Add quiz questions here:" FontSize="16"></Label>
-                <TextBox x:Name="txt_Question" Margin="5"
-                    Height="100"
-                    VerticalAlignment="Top"
-                    materialDesign:HintAssist.Hint="This is a text area"
-                    AcceptsReturn="True"
-                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                    TextWrapping="Wrap"
-                    VerticalScrollBarVisibility="Auto" 
-                />
-
-                <StackPanel HorizontalAlignment="Center">
-                    <Label FontSize="13" Content="Select Type of question:"/>
-                    <RadioButton x:Name="Rdo_Btn_TorF" Margin="5" Content="True or False"/>
-                    <RadioButton x:Name="Rdo_Btn_MultiChoice" Margin="5" Content="Multiple choice"/>
-                </StackPanel>
-                <Button x:Name="btn_AddQuestion" Width="170" VerticalAlignment="Bottom" Margin="7" 
-                    Content="Add Questoin To quiz" 
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-                    Style="{StaticResource MaterialDesignRaisedLightButton}"
-                    ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="btn_AddQuestion_Click"
-                />
             </StackPanel>
         </StackPanel>
         
@@ -51,19 +29,26 @@
                 <materialDesign:DialogHost.DialogContent>
                     <StackPanel Margin="16">
                         <TextBlock Text="Add a new question" />
-                        <TextBox x:Name="AnimalTextBox" Margin="0,8,0,0" HorizontalAlignment="Stretch" />
+                        <TextBox x:Name="txtbox_Question" Margin="0,8,0,0" HorizontalAlignment="Stretch" />
+                        
+                        <StackPanel Margin="5">
+                            <Label FontSize="13" Content="Select Type of question:"/>
+                            <RadioButton x:Name="Rdo_Btn_TorF" Margin="5" Content="True or False"/>
+                            <RadioButton x:Name="Rdo_Btn_MultiChoice" Margin="5" Content="Multiple choice"/>
+                        </StackPanel>
+                       
                         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                            <Button Margin="0,8,8,0"
+                            <Button x:Name="btn_Accept" Margin="0,8,8,0"
                                 Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Content="ACCEPT" IsDefault="True" 
-                                    Style="{StaticResource MaterialDesignFlatButton}">
+                                    Style="{StaticResource MaterialDesignFlatButton}" Click="Btn_Accept_Click">
                                 <Button.CommandParameter>
                                     <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
                                         True
                                     </system:Boolean>
                                 </Button.CommandParameter>
                             </Button>
-                            <Button Margin="0,8,8,0" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                                Content="CANCEL" IsCancel="True" Style="{StaticResource MaterialDesignFlatButton}">
+                            <Button x:Name="btn_Cancel" Margin="0,8,8,0" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                Content="CANCEL" IsCancel="True" Style="{StaticResource MaterialDesignFlatButton}" Click="btn_Cancel_Click">
                                 <Button.CommandParameter>
                                     <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
                                         False
@@ -91,14 +76,14 @@
                         <materialDesign:ColorZone Grid.Row="1" Effect="{DynamicResource MaterialDesignShadowDepth5}" Mode="PrimaryMid">
                             <TextBlock Margin="16" Text="Quiz questions" />
                         </materialDesign:ColorZone>
-                        <Button
+                        <Button x:Name="btn_TestAddQuestion"
         Grid.Row="0"
         Margin="0,0,28,-20"
         HorizontalAlignment="Right"
         VerticalAlignment="Bottom"
         Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
         Content="{materialDesign:PackIcon Kind=Plus, Size=22}"
-        Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}" />
+        Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}" Click="btn_TestAddQuestion_Click" />
                     </Grid>
                 </Border>
             </materialDesign:DialogHost>

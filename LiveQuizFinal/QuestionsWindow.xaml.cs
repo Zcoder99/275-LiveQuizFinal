@@ -26,24 +26,16 @@ namespace LiveQuizFinal
         {
             InitializeComponent();
             this.quiz = quiz; // Assign the passed quiz object to the local variable
+                      
         }
 
-        private void btn_AddQuestion_Click(object sender, RoutedEventArgs e)
+        private void Btn_Accept_Click(object sender, RoutedEventArgs e)
         {
-            if(!ValidateQuestion())
-            {
-                return;
-            }
-
-            // Check if a radio button is checked
-            if (Rdo_Btn_TorF.IsChecked == false && Rdo_Btn_MultiChoice.IsChecked == false)
-            {
-                MessageBox.Show("Please select a question type");
-                return;
-            }
+            if (!ValidateQuestion())
+                return;                       
 
             // Set question properties based on radio button selection
-            string questionText = txt_Question.Text;
+            string questionText = txtbox_Question.Text;
 
             // Determine question type based on radio button selection
             bool isTrueFalse = Rdo_Btn_TorF.IsChecked == true;
@@ -56,20 +48,34 @@ namespace LiveQuizFinal
             {
                 // Provide feedback to the user
                 MessageBox.Show("Question added to the quiz");
-                // Clear the text box
-                txt_Question.Text = "";
-                // if True or False is Open the AnswersWindow
-               OpenAnswersWindow(questionId);
+                
+                txtbox_Question.Text = ""; //            
+                
+                OpenAnswersWindow(questionId); // Open the AnswersWindow
+
+                lst_Questions.Items.Add(questionText);
             }
             else
             {
                 MessageBox.Show("Error adding question to the quiz");
             }
         }
+        // Open the dialog box
+        private void btn_TestAddQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            btn_Accept.IsEnabled = true;
+        }
 
+        // Close the dialog box
+        private void btn_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            diolog_ListQuestions.IsOpen = false;
+        }
+
+        // Validate the question
         private bool ValidateQuestion()
         {
-            if (string.IsNullOrWhiteSpace(txt_Question.Text))
+            if (string.IsNullOrWhiteSpace(txtbox_Question.Text))
             {
                 MessageBox.Show("Please enter a question");
                 return false;
@@ -84,13 +90,13 @@ namespace LiveQuizFinal
             return true;
         }
 
+        // Open the AnswersWindow
         private void OpenAnswersWindow(int questionId)
         {
             AnswersWindow answersWindow = new AnswersWindow(questionId);
             answersWindow.Owner = this;
             answersWindow.Show();
         }
-        
     }
 }
 
