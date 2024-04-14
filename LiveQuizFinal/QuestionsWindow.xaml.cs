@@ -90,6 +90,7 @@ namespace LiveQuizFinal
             answersWindow.Owner = this;
             answersWindow.Show();
         }
+        
     }
 }
 
