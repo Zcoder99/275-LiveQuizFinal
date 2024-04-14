@@ -21,8 +21,8 @@
             </materialDesign:Transitioner>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Content="Previous" Width="200" Margin="5"  Click="Button_Click" Style="{StaticResource MaterialDesignRaisedLightButton}"/>
-                <Button Content="Next" Width="200"  Margin="5"  Click="Button_Click_1" Style="{StaticResource MaterialDesignRaisedLightButton}"/>
+                <Button Content="Previous" Background="Black" Foreground="White" Width="200" Margin="5"  Click="Button_Click" Style="{StaticResource MaterialDesignRaisedLightButton}"/>
+                <Button Content="Next" Background="Black" Foreground="White" Width="200"  Margin="5"  Click="Button_Click_1" Style="{StaticResource MaterialDesignRaisedLightButton}"/>
             </StackPanel>
         </Grid>
     </Grid>
