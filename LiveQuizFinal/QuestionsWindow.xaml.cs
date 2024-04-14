@@ -45,11 +45,8 @@ namespace LiveQuizFinal
             int questionId = Question.SaveToQuestionsList(questionText, quiz.Id, isTrueFalse, isMultipleChoice);
 
             if (questionId != -1) // Check if the question was added to the database
-            {
-                // Provide feedback to the user
-                MessageBox.Show("Question added to the quiz");
-                
-                txtbox_Question.Text = ""; //            
+            {               
+                txtbox_Question.Text = "";           
                 
                 OpenAnswersWindow(questionId); // Open the AnswersWindow
 
