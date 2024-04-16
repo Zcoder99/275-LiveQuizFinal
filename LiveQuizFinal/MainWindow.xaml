@@ -22,6 +22,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        
 
         <!-- Centered StackPanel -->
         <StackPanel Grid.Column="0" Grid.Row="0"

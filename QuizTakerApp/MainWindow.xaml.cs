@@ -2,6 +2,8 @@
 using SqlServerLibrary.QuizClasses;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +26,6 @@ namespace QuizTakerApp
     {
         public List<Quiz> Quizzes { get; set; }
         QuiznessLayer quiznessLayer = new QuiznessLayer();
-
 
         public MainWindow()
         {
@@ -51,7 +52,7 @@ namespace QuizTakerApp
 
             testLiveQuiz.Show();
         }
-
        
+
     }
 }

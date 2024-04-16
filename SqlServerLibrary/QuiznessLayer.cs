@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace SqlServerLibrary
                 return db.Quizzes.Include(q => q.Questions)
                     .ThenInclude(a => a.Answers).ToList();
             }
-        }                            
+        }
+
+      
     }
 }

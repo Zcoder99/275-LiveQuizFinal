@@ -14,20 +14,21 @@
         TextOptions.TextRenderingMode="Auto"
         Background="White"
         FontFamily="{DynamicResource MaterialDesignFont}">
-    
+
     <!-- the transitioner will manage your transitions. notice how SelectedIndex is set to zero: the first slide (instead of the default of -1) -->
-        
+
     <Grid Background="#512da8">
-       
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="6" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
+
         <GroupBox
             Margin="10"
             Grid.ColumnSpan="2"
@@ -39,7 +40,7 @@
             materialDesign:ColorZoneAssist.Mode="Custom"
             Header="Select a quiz"
             Style="{StaticResource MaterialDesignGroupBox}">
-            
+
             <ListBox x:Name="lstQuizList" IsEnabled="{Binding IsChecked, ElementName=EnableListBox}" Grid.RowSpan="2"                     
                      DisplayMemberPath="QuizName" SelectionChanged="lstQuizList_SelectionChanged"
                      >
@@ -52,6 +53,6 @@
                 </ListBox.ItemContainerStyle>
             </ListBox>
         </GroupBox>
-    
+
     </Grid>
 </Window>
