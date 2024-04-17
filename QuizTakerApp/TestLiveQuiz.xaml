@@ -6,11 +6,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"         
         mc:Ignorable="d"
         Title="TestLiveQuiz" Height="450" Width="800">
-    
+
     <Grid Background="#512da8">
-        <!-- Use a Grid instead of StackPanel -->
         <Grid x:Name="QuestionsContainer">
-            <!-- Define a single row that fills the available height -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />

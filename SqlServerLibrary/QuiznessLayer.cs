@@ -21,8 +21,6 @@ namespace SqlServerLibrary
                 return db.Quizzes.Include(q => q.Questions)
                     .ThenInclude(a => a.Answers).ToList();
             }
-        }
-
-      
+        }      
     }
 }

@@ -47,11 +47,6 @@ namespace LiveQuizFinal
                 questionsWindow.Owner = this;
                 questionsWindow.Show();
             }
-
-        }
-
-       
-
-       
+        }       
     }
 }

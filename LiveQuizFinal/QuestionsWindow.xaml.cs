@@ -83,7 +83,6 @@ namespace LiveQuizFinal
                 MessageBox.Show("Please select a question type");
                 return false;
             }
-
             return true;
         }
 
